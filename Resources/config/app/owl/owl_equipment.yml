@@ -1,0 +1,7 @@
+owl_equipment:
+    resources:
+        equipment:
+            classes:
+                model: Owl\Component\Core\Model\Equipment
+                repository: Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentRepository
+                controller: Owl\Bridge\SyliusResource\Controller\BaseController

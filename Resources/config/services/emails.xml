@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<services>
+    <defaults public="true" />
+
+    <service id="sylius.listener.user_mailer_listener" class="Owl\Bundle\CoreBundle\EventListener\MailerListener" public="false">
+        <argument type="service" id="sylius.email_sender" />
+        <tag name="kernel.event_listener" event="sylius.user.password_reset.request.pin" method="sendResetPasswordPinEmail" />
+        <tag name="kernel.event_listener" event="sylius.user.password_reset.request.token" method="sendResetPasswordTokenEmail" />
+        <tag name="kernel.event_listener" event="sylius.user.email_verification.token" method="sendVerificationTokenEmail" />
+        <tag name="kernel.event_listener" event="owl.admin_user.post_register" method="sendUserRegistrationEmail" />
+        <tag name="kernel.event_listener" event="owl.registration.post_change_status_accepted" method="sendUserRegistrationAccepted" />
+        <tag name="kernel.event_listener" event="owl.registration.post_change_status_rejected" method="sendUserRegistrationRejected" />
+    </service>
+</services>
+</container>

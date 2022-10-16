@@ -1,0 +1,10 @@
+owl_status:
+    resources:
+        suggestion: 
+            subject: "%owl.model.suggestion.class%"
+            owner: "%owl.model.admin_user.class%"
+            status:
+                classes:
+                    model: Owl\Component\Core\Model\SuggestionStatus
+                    repository: Owl\Bundle\CoreBundle\Doctrine\ORM\SuggestionStatusRepository
+                    form: Owl\Bundle\CoreBundle\Form\Type\Suggestion\SuggestionStatusType

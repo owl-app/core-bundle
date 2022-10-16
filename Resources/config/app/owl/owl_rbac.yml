@@ -1,0 +1,13 @@
+owl_rbac:
+    auth_item_class: Owl\Component\Rbac\Model\AuthItem
+    resources:
+        rbac_permission:
+            classes:
+                model: Owl\Component\Rbac\Model\Permission
+                controller: Owl\Bundle\RbacBundle\Controller\PermissionController
+                repository: Owl\Bundle\RbacBundle\Doctrine\ORM\PermissionRepository
+        rbac_role:
+            classes:
+                model: Owl\Component\Core\Model\Rbac\Role
+                controller: Owl\Bundle\RbacBundle\Controller\RoleController
+                repository: Owl\Bundle\CoreBundle\Doctrine\ORM\RoleRepository

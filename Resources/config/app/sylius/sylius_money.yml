@@ -1,0 +1,3 @@
+sylius_money:
+    locale: "%locale%"
+    currency: "%owl_core.default_currency%"

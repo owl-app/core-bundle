@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="Owl\Component\Core\Model\AdminUser">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">email</option>
+            <option name="message">owl.user.email.unique</option>
+            <option name="groups">
+                <value>owl</value>
+                <value>owl_user_registration</value>
+            </option>
+        </constraint>
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl</value>
+                    <value>owl_user_registration</value>
+                </option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">owl.user.email.invalid</option>
+                <option name="mode">strict</option>
+                <option name="groups">
+                    <value>owl</value>
+                    <value>owl_user_registration</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="displayName">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">owl</option>
+            </constraint>
+        </property>
+        <property name="role">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl</value>
+                    <value>admin_user_registration_accept</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="company">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl</value>
+                    <value>admin_user_registration_accept</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="localeCode">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">owl</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">12</option>
+                <option name="groups">owl</option>
+            </constraint>
+        </property>
+        <property name="firstName">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl_user_registration</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="lastName">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl_user_registration</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="phone">
+            <constraint name="NotBlank">
+                <option name="message">owl.common.not_blank</option>
+                <option name="groups">
+                    <value>owl_user_registration</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

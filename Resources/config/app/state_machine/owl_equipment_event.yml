@@ -1,0 +1,13 @@
+winzou_state_machine:
+    owl_equipment_event:
+        class: "%owl.model.equipment_event.class%"
+        property_path: notify_state
+        graph: owl_equipment_event
+        state_machine_class: "%sylius.state_machine.class%"
+        states:
+            waiting: ~
+            sended: ~
+        transitions:
+            send:
+                from: [waiting]
+                to: sended

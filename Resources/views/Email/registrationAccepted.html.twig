@@ -1,0 +1,21 @@
+{% extends '@OwlCore/Email/layout.html.twig' %}
+
+{% block subject %}
+    {{ 'owl.email.registration_accepted.subject'|trans }}
+{% endblock %}
+
+{% block content %}
+{% set url = absolute_url(path('owl_admin_login')) %}
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="font-size: 24px;">
+            {{ 'owl.email.registration_accepted.thank_you_for_your_patience'|trans }}<br>
+        </div>
+        {{ 'owl.email.registration_accepted.you_have_just_been_accepted'|trans }} {{ user.displayName }}.
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{{ url|raw }}" style="display: inline-block; text-align: center; background: #1abb9c; padding: 18px 28px; color: #fff; text-decoration: none; border-radius: 3px;">
+            {{ 'owl.email.registration_accepted.start_using_system'|trans }}
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@OwlCoreBundle/Resources/config/app/sylius/sylius_money.yml" }

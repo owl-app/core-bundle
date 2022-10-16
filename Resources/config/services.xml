@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="services/templating.xml" />
+        <import resource="services/form.xml" />
+        <import resource="services/listeners.xml" />
+        <import resource="services/context.xml" />
+        <import resource="services/templating.xml" />
+        <import resource="services/integrations/grid.xml" />
+        <import resource="services/validators.xml" />
+        <import resource="services/actions.xml" />
+        <import resource="services/authorization.xml" />
+        <import resource="services/emails.xml" />
+        <import resource="services/controller.xml" />
+        <import resource="services/checkers.xml" />
+        <import resource="services/fixtures_factories.xml" />
+        <import resource="services/fixtures.xml" />
+        <import resource="services/equipment.xml" />
+        <import resource="services/commands.xml" />
+    </imports>
+
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.grid_filter.entities" class="Owl\Component\Core\Grid\Filter\EntitiesFilter">
+            <tag name="sylius.grid_filter" type="entities" form-type="Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\EntitiesFilterType" />
+        </service>
+
+        <service id="owl.grid_filter.location" class="Owl\Component\Core\Grid\Filter\LocationFilter">
+            <tag name="sylius.grid_filter" type="location" form-type="Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\LocationFilterType" />
+        </service>
+
+        <service id="owl.grid_filter.date" class="Owl\Component\Core\Grid\Filter\DateFilter" />
+
+        <service id="owl.custom_factory.suggestion" class="Owl\Component\Core\Factory\SuggestionFactory" decorates="owl.factory.suggestion" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.suggestion.inner" />
+        </service>
+
+        <service id="owl.custom_factory.equipment" class="Owl\Component\Core\Factory\EquipmentFactory" decorates="owl.factory.equipment" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.equipment.inner" />
+            <argument type="service" id="owl.context.admin_user" />
+        </service>
+
+        <service id="owl.custom_factory.company" class="Owl\Component\Core\Factory\CompanyFactory" decorates="owl.factory.company" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.company.inner" />
+        </service>
+
+        <service id="Owl\Component\Core\Factory\CompanyFactoryInterface" alias="owl.custom_factory.company" />
+
+        <service id="owl.custom_factory.notification" class="Owl\Component\Core\Factory\NotificationFactory" decorates="owl.factory.notification" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.notification.inner" />
+        </service>
+
+        <service id="Owl\Component\Core\Factory\NotificationFactoryInterface" alias="owl.custom_factory.notification" />
+
+        <service id="owl.custom_factory.equipment_refueling" class="Owl\Component\Core\Factory\EquipmentAddOnFactory" decorates="owl.factory.equipment_refueling" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.equipment_refueling.inner" />
+        </service>
+
+        <service id="owl.custom_factory.equipment_event" class="Owl\Component\Core\Factory\EquipmentAddOnFactory" decorates="owl.factory.equipment_event" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.equipment_event.inner" />
+        </service>
+
+        <service id="owl.document.pdf_factory" class="Owl\Component\Core\Factory\Document\PdfDocumentFactory">
+            <argument type="service" id="twig" />
+        </service>
+
+        <service id="owl.document.excel_factory" class="Owl\Component\Core\Factory\Document\ExcelDocumentFactory">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="owl.custom_factory.notification_accepted" class="Owl\Component\Core\Factory\NotificationAcceptedFactory" decorates="owl.factory.notification_accepted" decoration-priority="256" public="false">
+            <argument type="service" id="owl.custom_factory.notification_accepted.inner" />
+        </service>
+
+         <service id="owl.expression_language" class="Owl\Bridge\SyliusResource\ExpressionLanguage\ExpressionLanguage" decorates="sylius.expression_language" decoration-priority="256" public="false">
+            <argument type="service" id="Psr\Cache\CacheItemPoolInterface" />
+            <argument type="collection"> 
+                <argument type="service" id="owl.expression_language.provider.is_granted" />    
+            </argument>
+         </service>
+
+         <service id="owl.expression_language.provider.is_granted" class="Owl\Bridge\SyliusResource\ExpressionLanguage\IsGrantedExpressionFunctionProvider" public="false">
+            <argument type="service" id="security.authorization_checker" />
+         </service>
+
+        <service id="owl.single_role_updater" class="Owl\Component\Core\Updater\SingleRoleUpdater">
+            <argument type="service" id="owl_rbac.manager" />
+            <argument type="service" id="owl_rbac.item_manager_factory" />
+        </service>
+
+        <service id="owl.equipment_event_reminder" class="Owl\Component\Core\Reminder\EquipmentEventReminder">
+            <argument type="service" id="owl.repository.equipment_event" />
+            <argument type="service" id="owl.mailer.equipment_event_manager" />
+            <argument type="service" id="sm.factory" />
+            <argument type="service" id="logger" />
+        </service>
+
+        <service class="Owl\Bundle\CoreBundle\Mailer\EquipmentEventEmailManager" id="owl.mailer.equipment_event_manager">
+            <argument type="service" id="sylius.email_sender" />
+            <argument type="service" id="owl.repository.admin_user" />
+        </service>
+    </services>
+</container>

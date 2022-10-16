@@ -1,0 +1,21 @@
+Owl\Component\Core\Model\Equipment:
+    exclusion_policy: ALL
+    xml_root_name: equipment
+    properties:
+        id:
+            expose: true
+            type: integer
+            xml_attribute: true
+            groups: [AjaxShow, Autocomplete]
+        name:
+            expose: true
+            type: string
+            groups: [AjaxShow, Autocomplete]
+        symbol:
+            expose: true
+            type: string
+            groups: [Autocomplete]
+    virtual_properties:
+        getFullname:
+            serialized_name: fullname
+            groups: [Autocomplete] 

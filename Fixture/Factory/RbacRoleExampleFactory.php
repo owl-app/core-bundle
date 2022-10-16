@@ -1,0 +1,61 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Owl\Bundle\CoreBundle\Fixture\Factory;
+
+use Faker\Generator;
+use Faker\Factory;
+use Owl\Component\Core\Model\Rbac\RoleInterface;
+use Owl\Component\Core\Model\Rbac\RoleSetting;
+use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sylius\Component\Resource\Factory\FactoryInterface;
+
+class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
+{
+    private Generator $faker;
+
+    private OptionsResolver $optionsResolver;
+
+    public function __construct(
+        private FactoryInterface $rbacRoleFactory
+    ) {
+        $this->faker = Factory::create();
+        $this->optionsResolver = new OptionsResolver();
+
+        $this->configureOptions($this->optionsResolver);
+    }
+
+    public function create(array $options = []): RoleInterface
+    {
+        $options = $this->optionsResolver->resolve($options);
+
+        /** @var RoleInterface $rbacRole */
+        $rbacRole = $this->rbacRoleFactory->createNew();
+        $rbacRole->setName($options['name']);
+        $rbacRole->setDescription($options['description']);
+
+        if (isset($options['setting']) && null !== $options['setting']) {
+            $shopBillingData = new RoleSetting();
+            $shopBillingData->setCanonicalName($options['setting']['canonical_name'] ?? null);
+            $shopBillingData->setTheme($options['setting']['theme'] ?? null);
+
+            $rbacRole->setSetting($shopBillingData);
+        }
+
+        return $rbacRole;
+    }
+
+    protected function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver
+            ->setDefined('name')
+            ->setDefault('description', function (Options $options): string {
+                return $this->faker->sentence();
+            })
+            ->setDefined('setting')
+            ->setAllowedTypes('setting', ['array'])
+        ;
+    }
+}

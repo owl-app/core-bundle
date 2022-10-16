@@ -1,0 +1,9 @@
+owl_category:
+    resources:
+        equipment:
+            subject: "%owl.model.equipment.class%"
+            category:
+                classes:
+                    model: Owl\Component\Core\Model\EquipmentCategory
+                    interface: Owl\Component\Core\Model\EquipmentCategoryInterface
+                    form: Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentCategoryType

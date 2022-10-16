@@ -1,0 +1,3 @@
+Owl\Component\Core\Model\Rbac\Permission:
+    exclusion_policy: ALL
+    xml_root_name: rbac_permission

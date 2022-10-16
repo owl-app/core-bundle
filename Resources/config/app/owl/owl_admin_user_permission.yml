@@ -1,0 +1,6 @@
+owl_core:
+    resources:
+        admin_user_permission:
+            classes:
+              model: "%owl.model.admin_user.class%"
+              repository: Owl\Bundle\UserBundle\Doctrine\ORM\UserRepository

@@ -1,0 +1,14 @@
+imports:
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_user.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_rbac.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_admin_user_permission.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_file.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_locale.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_suggestion.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_status.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_company.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_equipment.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_category.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_notification.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_setting.yml" }
+    - { resource: "@OwlCoreBundle/Resources/config/app/owl/owl_equipment_attribute.yml" }

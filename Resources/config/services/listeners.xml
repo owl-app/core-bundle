@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.listener.referer_path" class="Owl\Bundle\CoreBundle\EventListener\RefererListener">
+            <argument type="service" id="security.token_storage" />
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="7" />
+        </service>
+
+        <service id="owl.listener.resource_ajax_validation" class="Owl\Bundle\CoreBundle\EventListener\ResourceAjaxValidationListener">
+            <argument type="service" id="security.token_storage" />
+            <tag name="kernel.event_listener" event="owl.ajax_validation" method="validate" priority="7" />
+            <tag name="kernel.event_listener" event="owl_setting.ajax_validation" method="validate" />
+        </service>
+
+        <service id="owl.listener.user_role_assign" class="Owl\Bundle\CoreBundle\EventListener\UpdateRoleUserListener">
+            <argument type="service" id="owl.single_role_updater" />
+            <tag name="kernel.event_listener" event="owl.admin_user.post_create" method="assingRole" />
+            <tag name="kernel.event_listener" event="owl.admin_user.post_update" method="assingRole" />
+        </service>
+
+        <service id="owl.listener.add_company" class="Owl\Bundle\CoreBundle\EventListener\AddCompanyListener">
+            <argument type="service" id="owl.context.admin_user" />
+        </service>
+
+        <service id="owl.listener.ownerable_permission_collection" class="Owl\Bundle\CoreBundle\EventListener\OwnerableResourceCollectionListener">
+            <argument type="service" id="owl.authorization.owner.condition" />
+        </service>
+
+        <service id="sylius.listener.password_updater" class="Owl\Bundle\UserBundle\EventListener\PasswordUpdaterListener">
+            <argument type="service" id="owl.security.password_updater" />
+            <tag name="kernel.event_listener" event="sylius.user.pre_password_reset" method="genericEventUpdater" />
+            <tag name="kernel.event_listener" event="sylius.user.pre_password_change" method="genericEventUpdater" />
+            <tag name="kernel.event_listener" event="owl.admin_user.pre_update" method="genericEventUpdater" />
+            <tag name="doctrine.event_listener" event="prePersist" lazy="true" />
+            <tag name="doctrine.event_listener" event="preUpdate" lazy="true" />
+        </service>
+
+        <service id="owl.listener.registration_change_status" class="Owl\Bundle\CoreBundle\EventListener\RegistrationChangeStatusEventListener">
+            <argument type="service" id="owl.manager.admin_user_registration_data" />
+            <argument type="service" id="owl.single_role_updater" />
+            <argument type="service" id="event_dispatcher" />
+            <tag name="kernel.event_listener" event="owl.admin_user_registration_data.post_change_status_registration" method="handleChangeStatusRegistration" />
+        </service>
+
+    </services>
+</container>

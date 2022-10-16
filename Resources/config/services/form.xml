@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="owl.form.type.service_review.validation_groups" type="collection">
+            <parameter>owl</parameter>
+            <parameter>owl_review</parameter>
+        </parameter>
+        <parameter key="owl.form.type.admin_user.validation_groups" type="collection">
+            <parameter>owl</parameter>
+        </parameter>
+        <parameter key="owl.form.type.admin_user_registration.validation_groups" type="collection">
+            <parameter>owl_user_registration</parameter>
+        </parameter>
+        <parameter key="owl.form.type.registration.validation_groups" type="collection">
+            <parameter>owl</parameter>
+            <parameter>owl_registration</parameter>
+        </parameter>
+        <parameter key="owl.form.type.admin_user_registration_accept.validation_groups" type="collection">
+            <parameter>admin_user_registration_accept</parameter>
+        </parameter>
+        <parameter key="owl.form.type.admin_user_registration_reject.validation_groups" type="collection">
+            <parameter>admin_user_registration_reject</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.form.role_based_validation_group" class="Owl\Component\Core\Resolver\RoleBasedValidationGroupResolver">
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="form.type_extension" extended-type="Owl\Bundle\ServiceBundle\Form\Type\ServiceType" />
+        </service>
+
+        <service id="owl.form.extension.type.service" class="Owl\Bundle\CoreBundle\Form\Extension\ServiceTypeExtension">
+            <tag name="form.type_extension" extended-type="Owl\Bundle\ServiceBundle\Form\Type\ServiceType" />
+        </service>
+
+        <!-- <service id="sylius.form.type.product_review" class="Owl\Bundle\CoreBundle\Form\Type\Service\ServiceReviewType">
+            <argument>%owl.model.service_review.class%</argument>
+            <argument>%owl.form.type.service_review.validation_groups%</argument>
+            <tag name="form.type" />
+        </service> -->
+
+        <service id="owl.form.type.admin_user" class="Owl\Bundle\CoreBundle\Form\Type\User\AdminUserType">
+            <argument>%owl.model.admin_user.class%</argument>
+            <argument>%owl.form.type.admin_user.validation_groups%</argument>
+            <argument>%locale%</argument>
+            <argument type="service" id="owl.form.subscriber.add_owner" />
+            <tag name="form.type" />
+        </service>
+
+        <!-- <service id="sylius.form.type.service_file" class="Owl\Bundle\CoreBundle\Form\Type\Service\ServiceFileType">
+            <argument>%owl.model.service_file.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="sylius.form.type.service_upload_file" class="Owl\Bundle\CoreBundle\Form\Type\Service\ServiceUploadFileType">
+            <argument>%owl.model.service_file.class%</argument>
+            <tag name="form.type" />
+        </service> -->
+
+        <service id="owl.form.type.suggestion_file" class="Owl\Bundle\CoreBundle\Form\Type\Suggestion\SuggestionFileType">
+            <argument>%owl.model.suggestion_file.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.suggestion_upload_file" class="Owl\Bundle\CoreBundle\Form\Type\Suggestion\SuggestionUploadFileType">
+            <argument>%owl.model.suggestion_file.class%</argument>
+            <argument>%owl.form.type.file.upload_file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.suggestion_status" class="Owl\Bundle\CoreBundle\Form\Type\Suggestion\SuggestionStatusType">
+            <argument>%owl.model.suggestion_status.class%</argument>
+            <argument>%owl.form.type.status.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.extension.type.equipment" class="Owl\Bundle\CoreBundle\Form\Extension\EquipmentTypeExtension">
+            <argument type="service" id="owl.form.subscriber.add_owner" />
+            <argument type="service" id="owl.form.subscriber.equipment_fileds_by_role" />
+            <argument type="service" id="owl.form.role_based_validation_group" />
+            <tag name="form.type_extension" extended-type="Owl\Bundle\EquipmentBundle\Form\Type\EquipmentType" />
+        </service>
+
+        <service id="owl.form.extension.type.equipment_attribute" class="Owl\Bundle\CoreBundle\Form\Extension\EquipmentAttributeTypeExtension">
+            <tag name="form.type_extension" extended-type="Owl\Bundle\EquipmentBundle\Form\Type\EquipmentAttributeType" />
+        </service>
+
+        <service id="owl.form.type.equipment_file" class="Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentFileType">
+            <argument>%owl.model.equipment_file.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.equipment_event" class="Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentEventType">
+            <argument>%owl.model.equipment_event.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.equipment_refueling" class="Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentRefuelingType">
+            <argument>%owl.model.equipment_refueling.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>        
+
+        <service id="owl.form.type.equipment_upload_file" class="Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentUploadFileType">
+            <argument>%owl.model.equipment_file.class%</argument>
+            <argument>%owl.form.type.file.upload_file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.extension.type.rbac_role" class="Owl\Bundle\CoreBundle\Form\Extension\RoleTypeExtension">
+            <tag name="form.type_extension" extended-type="Owl\Bundle\RbacBundle\Form\Type\RoleType" />
+        </service>
+
+        <service id="owl.form.type.rbac_role_theme" class="Owl\Bundle\CoreBundle\Form\Type\Rbac\RoleSettingType">
+            <argument>%owl.model.role_settings.class%</argument>
+            <argument>%owl.form.type.rbac_role.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.role_choice" class="Owl\Bundle\CoreBundle\Form\Type\RoleChoiceType">
+            <argument type="service" id="owl.repository.rbac_role" />
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.company_choice" class="Owl\Bundle\CoreBundle\Form\Type\CompanyChoiceType">
+            <argument type="service" id="owl.repository.company" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.user_choice" class="Owl\Bundle\CoreBundle\Form\Type\UserChoiceType">
+            <argument type="service" id="owl.repository.admin_user" />
+            <argument type="service" id="owl.authorization.owner.condition" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.equipment_category" class="Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentCategoryType">
+            <argument>%owl.model.equipment_category.class%</argument>
+            <argument>%owl.form.type.category.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.equipment_category_choice" class="Owl\Bundle\CoreBundle\Form\Type\EquipmentCategoryChoiceType">
+            <argument type="service" id="owl.repository.equipment_category" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.excel_type" class="Owl\Bundle\CoreBundle\Form\Type\DocumentExcelType">
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.subscriber.add_owner" class="Owl\Bundle\CoreBundle\Form\EventSubscriber\AddOwnerFormSubscriber">
+            <argument type="service" id="owl.context.admin_user" />
+            <argument type="service" id="form.factory" />
+        </service>
+
+        <service id="owl.form.extension.type.service" class="Owl\Bundle\CoreBundle\Form\Extension\MoneyTypeExtension">
+            <argument>%owl_core.default_currency%</argument>
+            <tag name="form.type_extension" extended-type="Sylius\Bundle\MoneyBundle\Form\Type\MoneyType" />
+        </service>
+
+        <service id="owl.form.type.notification_file" class="Owl\Bundle\CoreBundle\Form\Type\Notification\NotificationFileType">
+            <argument>%owl.model.notification_file.class%</argument>
+            <argument>%owl.form.type.file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.notification_upload_file" class="Owl\Bundle\CoreBundle\Form\Type\Notification\NotificationUploadFileType">
+            <argument>%owl.model.notification_file.class%</argument>
+            <argument>%owl.form.type.file.upload_file.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.group_notification_choice" class="Owl\Bundle\CoreBundle\Form\Type\GroupNotificationChoiceType">
+            <argument type="service" id="owl.repository.rbac_role" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.extension.type.notification" class="Owl\Bundle\CoreBundle\Form\Extension\NotificationTypeExtension">
+            <tag name="form.type_extension" extended-type="Owl\Bundle\NotificationBundle\Form\Type\NotificationType" />
+        </service>
+        
+        <service id="owl.form.type.system_setting" class="Owl\Bundle\CoreBundle\Form\Type\SystemSettingType">
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.admin_user_registration" class="Owl\Bundle\CoreBundle\Form\Type\User\AdminUserRegistrationType">
+            <argument>%owl.model.admin_user.class%</argument>
+            <argument>%owl.form.type.admin_user_registration.validation_groups%</argument>
+            <argument type="service" id="owl.form.subscriber.admin_user_registration" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.registration" class="Owl\Bundle\CoreBundle\Form\Type\User\AdminUserRegistrationDataType">
+            <argument>%owl.model.admin_user_registration_data.class%</argument>
+            <argument>%owl.form.type.registration.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.subscriber.admin_user_registration" class="Owl\Bundle\CoreBundle\Form\EventSubscriber\AdminUserRegistrationFormSubscriber">
+            <argument>%owl.model.admin_user_registration_data.class%</argument>
+            <argument type="service" id="owl.admin_user.token_generator.email_verification" />
+        </service>
+
+        <service id="owl.form.type.registration_accept" class="Owl\Bundle\CoreBundle\Form\Type\User\AdminUserAcceptRegistrationType">
+            <argument>%owl.model.admin_user.class%</argument>
+            <argument>%owl.form.type.admin_user_registration_accept.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.accept_registration" class="Owl\Bundle\CoreBundle\Form\Type\AcceptRegistrationType">
+            <argument>%owl.model.admin_user_registration_data.class%</argument>
+            <argument>%owl.form.type.admin_user_registration_accept.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.type.reject_registration" class="Owl\Bundle\CoreBundle\Form\Type\RejectRegistrationType">
+            <argument>%owl.model.admin_user_registration_data.class%</argument>
+            <argument>%owl.form.type.admin_user_registration_reject.validation_groups%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="owl.form.subscriber.equipment_fileds_by_role" class="Owl\Bundle\CoreBundle\Form\EventSubscriber\EquipmentFiledsByRoleSubscriber">
+            <argument type="service" id="owl.context.admin_user" />
+            <argument type="service" id="form.factory" />
+        </service>
+    </services>
+</container>

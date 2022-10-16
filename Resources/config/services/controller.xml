@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="owl_core.controller.security" class="Owl\Bundle\CoreBundle\Controller\SecurityController" public="true">
+            <argument type="service" id="security.authentication_utils" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="twig" />
+            <argument type="service" id="security.authorization_checker" />
+            <argument type="service" id="router" />
+            <argument type="service" id="owl.setting.storage.doctrine" />
+        </service>
+    </services>
+</container>

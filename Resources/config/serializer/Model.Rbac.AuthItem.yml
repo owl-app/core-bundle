@@ -1,0 +1,27 @@
+Owl\Component\Core\Model\Rbac\AuthItem:
+    exclusion_policy: ALL
+    xml_root_name: rbac_permission
+    discriminator:
+        field_name: type
+        disabled: false
+        map:
+            permission: "Owl\\Component\\Core\\Model\\Rbac\\Permission"
+            role: "Owl\\Component\\Core\\Model\\Rbac\\Role"
+    properties:
+        id:
+            expose: true
+            type: integer
+            xml_attribute: true
+            groups: [ADD]
+        name:
+            expose: true
+            type: string
+            groups: [ADD]
+        group_permission:
+            expose: true
+            type: string
+            groups: [ADD]
+        description:
+            expose: true
+            type: string
+            groups: [ADD]

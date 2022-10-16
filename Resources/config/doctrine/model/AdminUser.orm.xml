@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Owl\Component\Core\Model\AdminUser" table="owl_admin_user">
+        <field name="displayName" column="display_name" type="string" nullable="true" />
+        <field name="firstName" column="first_name" type="string" nullable="true" />
+        <field name="lastName" column="last_name" type="string" nullable="true" />
+        <field name="phone" column="phone" type="string" nullable="true" />
+        <field name="note" column="note" type="text" nullable="true" />
+        <field name="mailboxFooter" column="mailbox_footer" type="text" nullable="true" />
+        <field name="localeCode" column="locale_code" type="string" length="12" />
+
+        <many-to-one field="role" target-entity="Owl\Component\Rbac\Model\RoleInterface">
+            <join-column name="role_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="company" target-entity="Owl\Component\Core\Model\CompanyInterface">
+            <join-column name="company_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <one-to-many
+            field="acceptedNotifications"
+            target-entity="Owl\Component\Core\Model\NotificationAcceptedInterface"
+            mapped-by="user"
+            orphan-removal="false"
+        >
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
+        <one-to-one field="registration" target-entity="Owl\Component\Core\Model\AdminUserRegistrationDataInterface" mapped-by="user">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-one>
+
+    </mapped-superclass>
+
+</doctrine-mapping>

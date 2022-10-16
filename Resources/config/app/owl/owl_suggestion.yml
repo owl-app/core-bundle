@@ -1,0 +1,7 @@
+owl_suggestion:
+    resources:
+        suggestion:
+            classes:
+                model: Owl\Component\Core\Model\Suggestion
+                repository: Owl\Bundle\CoreBundle\Doctrine\ORM\SuggestionRepository
+                controller: Owl\Bridge\SyliusResource\Controller\BaseController

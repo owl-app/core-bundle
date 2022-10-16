@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ This file is part of the Sylius package.
+
+ (c) Paweł Jędrzejewski
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.context.locale.request_based" class="Owl\Bundle\LocaleBundle\Context\RequestBasedLocaleContext">
+            <argument type="service" id="request_stack" />
+            <argument type="service" id="owl.locale_provider" />
+            <tag name="owl.context.locale" priority="64" />
+        </service>
+
+        <service id="owl.context.locale.provider_based" class="Owl\Component\Locale\Context\ProviderBasedLocaleContext">
+            <argument type="service" id="owl.locale_provider" />
+            <tag name="owl.context.locale" priority="-128" />
+        </service>
+
+        <service id="owl.theme.context.role_based" class="Owl\Bundle\CoreBundle\Theme\RoleBasedThemeContext" public="false">
+            <argument type="service" id="owl.context.admin_user" />
+            <argument type="service" id="Sylius\Bundle\ThemeBundle\Repository\ThemeRepositoryInterface" />
+        </service>
+
+        <service id="owl.context.admin_user" class="Owl\Bundle\CoreBundle\Context\AdminUserContext">
+            <argument type="service" id="security.token_storage" />
+            <argument type="service" id="security.authorization_checker" />
+        </service>
+
+    </services>
+</container>

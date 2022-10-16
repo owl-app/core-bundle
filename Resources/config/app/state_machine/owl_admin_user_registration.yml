@@ -1,0 +1,17 @@
+winzou_state_machine:
+    owl_admin_user_registration:
+        class: "%owl.model.admin_user_registration_data.class%"
+        property_path: status
+        graph: owl_admin_user_registration
+        state_machine_class: "%sylius.state_machine.class%"
+        states:
+            new: ~
+            accepted: ~
+            rejected: ~
+        transitions:
+            accept:
+                from: [new]
+                to: accepted
+            reject:
+                from: [new]
+                to: rejected

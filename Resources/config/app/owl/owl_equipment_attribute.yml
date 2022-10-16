@@ -1,0 +1,7 @@
+owl_attribute:
+    resources:
+        equipment:
+            attribute:
+                classes:
+                    model: Owl\Component\Core\Model\EquipmentAttribute
+                    repository: Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentAttributeRepository

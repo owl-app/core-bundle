@@ -1,0 +1,7 @@
+owl_notification:
+    resources:
+        notification:
+            classes:
+                model: Owl\Component\Core\Model\Notification
+                repository: Owl\Bundle\CoreBundle\Doctrine\ORM\NotificationRepository
+                controller: Owl\Bridge\SyliusResource\Controller\BaseController

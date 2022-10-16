@@ -1,0 +1,9 @@
+{% extends '@OwlCore/Email/layout.html.twig' %}
+
+{% block subject %}
+    {{ 'owl.email.equipment_event_notify.subject'|trans ~ ' ' ~ equipment.name }}
+{% endblock %}
+
+{% block content %}
+    {{ equipmentEvent.description }}
+{% endblock %}

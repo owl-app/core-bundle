@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.fixture.example_factory.rbac_role" class="Owl\Bundle\CoreBundle\Fixture\Factory\RbacRoleExampleFactory">
+            <argument type="service" id="owl.factory.rbac_role" />
+        </service>
+
+        <service id="owl.fixture.example_factory.rbac_permission" class="Owl\Bundle\CoreBundle\Fixture\Factory\RbacPermissionExampleFactory">
+            <argument type="service" id="owl.factory.rbac_permission" />
+        </service>
+
+        <service id="owl.fixture.example_factory.company" class="Owl\Bundle\CoreBundle\Fixture\Factory\CompanyExampleFactory">
+            <argument type="service" id="owl.factory.company" />
+        </service>
+
+        <service id="owl.fixture.example_factory.admin_user" class="Owl\Bundle\CoreBundle\Fixture\Factory\AdminUserExampleFactory">
+            <argument type="service" id="owl.factory.admin_user" />
+            <argument type="service" id="owl.fixture.reference.company" />
+            <argument type="service" id="owl.fixture.reference.rbac_role" />
+            <argument>%locale%</argument>
+        </service>
+
+    </services>
+</container>

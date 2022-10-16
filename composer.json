@@ -1,0 +1,44 @@
+{
+    "name": "owl/core-bundle",
+    "type": "symfony-bundle",
+    "description": "Owl Core Bundle integrates all other bundles into complete Owl application.",
+    "authors": [
+        {
+            "name": "Paweł Kęska",
+            "email": "projekty@pawelkeska.eu"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "stof/doctrine-extensions-bundle": "^1.7",
+        "owl/core": "^1.0",
+        "sylius/resource-bundle": "^1.8",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/intl": "^5.4"
+    },
+    "require-dev": {
+        "doctrine/orm": "^2.8",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/form": "^5.4",
+        "symfony/validator": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Owl\\Bundle\\CoreBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+        },
+        "classmap": [
+        ]
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../*/*"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

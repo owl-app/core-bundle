@@ -1,0 +1,6 @@
+owl_setting:
+    resources:
+        setting:
+            classes:
+                model: Owl\Component\Core\Model\Setting
+                controller: Owl\Bridge\SyliusResource\Controller\BaseController

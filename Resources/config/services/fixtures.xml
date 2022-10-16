@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <!-- <service id="sylius.fixture.locale" class="Owl\Bundle\CoreBundle\Fixture\LocaleFixture">
+            <argument type="service" id="owl.factory.locale" />
+            <argument type="service" id="owl.manager.locale" />
+            <argument>%locale%</argument>
+            <tag name="sylius_fixtures.fixture" />
+        </service> -->
+
+        <service id="owl.fixture.rbac_role" class="Owl\Bundle\CoreBundle\Fixture\RbacRoleFixture">
+            <argument type="service" id="owl.manager.rbac_role" />
+            <argument type="service" id="owl.fixture.example_factory.rbac_role" />
+            <tag name="sylius_fixtures.fixture" reference-resource="owl.rbac_role" />
+        </service>
+
+        <service id="owl.fixture.company" class="Owl\Bundle\CoreBundle\Fixture\CompanyFixture">
+            <argument type="service" id="owl.manager.company" />
+            <argument type="service" id="owl.fixture.example_factory.company" />
+            <tag name="sylius_fixtures.fixture" reference-resource="owl.company" />
+        </service>
+
+        <service id="owl.fixture.admin_user" class="Owl\Bundle\CoreBundle\Fixture\AdminUserFixture">
+            <argument type="service" id="owl.manager.admin_user" />
+            <argument type="service" id="owl.fixture.example_factory.admin_user" />
+            <tag name="sylius_fixtures.fixture" reference-resource="owl.admin_user" />
+        </service>
+
+    </services>
+</container>
