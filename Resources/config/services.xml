@@ -74,14 +74,14 @@
             <argument type="service" id="owl.custom_factory.notification_accepted.inner" />
         </service>
 
-         <service id="owl.expression_language" class="Owl\Bridge\SyliusResource\ExpressionLanguage\ExpressionLanguage" decorates="sylius.expression_language" decoration-priority="256" public="false">
+         <service id="owl.expression_language" class="Owl\Bridge\SyliusResourceBridge\ExpressionLanguage\ExpressionLanguage" decorates="sylius.expression_language" decoration-priority="256" public="false">
             <argument type="service" id="Psr\Cache\CacheItemPoolInterface" />
             <argument type="collection"> 
                 <argument type="service" id="owl.expression_language.provider.is_granted" />    
             </argument>
          </service>
 
-         <service id="owl.expression_language.provider.is_granted" class="Owl\Bridge\SyliusResource\ExpressionLanguage\IsGrantedExpressionFunctionProvider" public="false">
+         <service id="owl.expression_language.provider.is_granted" class="Owl\Bridge\SyliusResourceBridge\ExpressionLanguage\IsGrantedExpressionFunctionProvider" public="false">
             <argument type="service" id="security.authorization_checker" />
          </service>
 

@@ -3,4 +3,4 @@ owl_company:
         company:
             classes:
                 model: Owl\Component\Core\Model\Company
-                controller: Owl\Bridge\SyliusResource\Controller\BaseController
+                controller: Owl\Bridge\SyliusResourceBridge\Controller\BaseController

@@ -2,7 +2,7 @@
 
 namespace Owl\Bundle\CoreBundle;
 
-use Owl\Bridge\SyliusResource\DependencyInjection\Compiler\ActionsResourcePass;
+use Owl\Bridge\SyliusResourceBridge\DependencyInjection\Compiler\ActionsResourcePass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\CompositeOwnerableConditionPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\FixtureReferenceRegistryPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterListenerOwnerableCollectionPass;

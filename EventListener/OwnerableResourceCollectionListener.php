@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\EventListener;
 
 use Owl\Component\Core\Authorization\Owner\OwnerConditionProviderInterface;
-use Owl\Bridge\SyliusResource\Event\CollectionPreLoadEvent;
+use Owl\Bridge\SyliusResourceBridge\Event\CollectionPreLoadEvent;
 
 final class OwnerableResourceCollectionListener
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Controller\Action;
 
-use Owl\Bridge\SyliusResource\Controller\AbstractResourceAction;
+use Owl\Bridge\SyliusResourceBridge\Controller\AbstractResourceAction;
 use Owl\Component\Core\Factory\Document\DocumentFactoryInterface;
 use Owl\Component\Core\Factory\Document\Params\PdfDocumentParams;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfigurationFactoryInterface;

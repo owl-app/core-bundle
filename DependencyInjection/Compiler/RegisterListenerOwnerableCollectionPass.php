@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\DependencyInjection\Compiler;
 
-use Owl\Bridge\SyliusResource\Event\CollectionPreLoadEvent;
+use Owl\Bridge\SyliusResourceBridge\Event\CollectionPreLoadEvent;
 use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
