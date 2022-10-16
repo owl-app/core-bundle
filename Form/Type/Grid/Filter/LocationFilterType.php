@@ -33,8 +33,8 @@ final class LocationFilterType extends AbstractType
             ])
         ;
 
-        if($options['extra_fields']) {
-            foreach($options['extra_fields'] as $extraField) {
+        if ($options['extra_fields']) {
+            foreach ($options['extra_fields'] as $extraField) {
                 $builder
                     ->add($extraField, HiddenType::class, [
                         'required' => false,

@@ -38,7 +38,7 @@ class EquipmentEventType extends AbstractResourceType
                 $form = $event->getForm();
                 $equipmentEvent = $form->getData();
 
-                if(strtotime($data['dateNotify']) != ($equipmentEvent->getDateNotify())?->getTimestamp()) {
+                if (strtotime($data['dateNotify']) != ($equipmentEvent->getDateNotify())?->getTimestamp()) {
                     $equipmentEvent->setNotifyState(empty($data['dateNotify']) ? null : EquipmentEventInterface::NOTIFY_STATE_WAITING);
                     $form->setData($equipmentEvent);
                 }

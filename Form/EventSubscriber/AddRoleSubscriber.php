@@ -33,8 +33,8 @@ final class AddRoleSubscriber implements EventSubscriberInterface
 
         Assert::isInstanceOf($roleRbac, RoleInterface::class);
 
-        if($roles) {
-            foreach($roles as $role) {
+        if ($roles) {
+            foreach ($roles as $role) {
                 $data->removeRole($role);
             }
         }

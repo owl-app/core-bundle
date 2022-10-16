@@ -33,7 +33,7 @@ final class RegistrationChangeStatusEventListener
     {
         $status = $adminUserRegistrationData->getStatus();
 
-        if($status === AdminUserRegistrationDataInterface::STATUS_ACCEPTED) {
+        if ($status === AdminUserRegistrationDataInterface::STATUS_ACCEPTED) {
             $this->roleUpdater->assign($adminUserRegistrationData->getUser());
         }
 
@@ -48,7 +48,7 @@ final class RegistrationChangeStatusEventListener
 
     public function getEventName(string $status): string
     {
-        if($status === AdminUserRegistrationDataInterface::STATUS_ACCEPTED) {
+        if ($status === AdminUserRegistrationDataInterface::STATUS_ACCEPTED) {
             return RegistrationEvents::POST_CHANGE_STATUS_ACCEPTED;
         }
 

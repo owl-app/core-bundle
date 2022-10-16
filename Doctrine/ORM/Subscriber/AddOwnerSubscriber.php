@@ -33,7 +33,7 @@ final class AddOwnerSubscriber implements EventSubscriber
     {
         $entity = $args->getObject();
 
-        if($entity instanceof OwnerableUserInterface && $entity instanceof UserAwareInterface && is_null($entity->getUser())) {
+        if ($entity instanceof OwnerableUserInterface && $entity instanceof UserAwareInterface && is_null($entity->getUser())) {
             $entity->setUser($this->adminUserContext->getUser());
         }
     }

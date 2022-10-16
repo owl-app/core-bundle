@@ -24,8 +24,8 @@ final class RegisterListenerOwnerableCollectionPass implements CompilerPassInter
 
         foreach ($resourceRegistry->getAll() as $alias => $resource) {
             $model = $resource->getParameters()['classes']['model'];
- 
-            if(\is_subclass_of($model, OwnerableCompanyInterface::class) || \is_subclass_of($model, OwnerableUserInterface::class)) {
+
+            if (\is_subclass_of($model, OwnerableCompanyInterface::class) || \is_subclass_of($model, OwnerableUserInterface::class)) {
                 $definitionListener->addTag('kernel.event_listener', [
                     'event' => sprintf('%s.%s.%s', $resource->getApplicationName(), $resource->getName(), CollectionPreLoadEvent::EVENT_NAME),
                     'method' => 'addCondition',

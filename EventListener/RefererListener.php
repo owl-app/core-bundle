@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\EventListener;
@@ -32,7 +33,7 @@ final class RefererListener
         $hasReferer = $request->get('_sylius')['vars']['referer'] ?? false;
 
         if (null !== $token && $user instanceof AdminUserInterface && $request->isMethodSafe() && !$request->isXmlHttpRequest()) {
-            if($hasReferer) {
+            if ($hasReferer) {
                 $this->saveRefererPath($session, $currentUrl);
             }
         }

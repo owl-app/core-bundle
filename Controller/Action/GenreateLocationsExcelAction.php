@@ -47,7 +47,7 @@ final class GenreateLocationsExcelAction extends AbstractResourceAction
         $formType = (string) $configuration->getFormType();
         $formOptions = $configuration->getFormOptions();
 
-        $form = $this->formFactory->create($formType , null, $formOptions);
+        $form = $this->formFactory->create($formType, null, $formOptions);
         $form->handleRequest($request);
 
         if ($configuration->isAjaxRequest() && $form->isSubmitted() && !$form->isValid()) {
@@ -69,7 +69,7 @@ final class GenreateLocationsExcelAction extends AbstractResourceAction
 
             return $generatorExcel->generateResponse('EXCEL-lokalizacje', ['locations' => $resources]);
         }
-    
+
         return $this->render($configuration->getTemplate(''), [
             'configuration' => $configuration,
             'metadata' => $this->metadata,

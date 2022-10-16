@@ -38,10 +38,10 @@ final class EquipmentEventEmailManager implements EquipmentEventEmailManagerInte
         $emails = [$equipment->getUser()->getEmail()];
         $adminsCompany = $this->adminUserRepository->findAdminsCompany($equipment->getCompany()->getId());
 
-        foreach($adminsCompany as $adminCompany) {
+        foreach ($adminsCompany as $adminCompany) {
             $adminCompanyEmail = $adminCompany->getEmail();
 
-            if(!in_array($adminCompanyEmail, $emails)) {
+            if (!in_array($adminCompanyEmail, $emails)) {
                 $emails[] = $adminCompanyEmail;
             }
         }

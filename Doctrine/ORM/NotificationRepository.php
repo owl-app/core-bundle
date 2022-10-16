@@ -13,7 +13,7 @@ use Owl\Component\Core\Repository\NotificationRepositoryInterface;
 
 class NotificationRepository extends EntityRepository implements NotificationRepositoryInterface
 {
-    private function createAssignedQueryBuilder(AdminUserInterface $user, string $groupAssigned,): QueryBuilder
+    private function createAssignedQueryBuilder(AdminUserInterface $user, string $groupAssigned): QueryBuilder
     {
         $qb = $this->createQueryBuilder('o');
 

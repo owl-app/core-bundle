@@ -36,7 +36,7 @@ class UserController extends BaseUserController
             'configuration' => $configuration,
             'metadata' => $this->metadata,
             'user' => $resource,
-            'forms' => $forms 
+            'forms' => $forms
         ]);
     }
 
@@ -71,8 +71,8 @@ class UserController extends BaseUserController
         if ($request->isMethod($method) && $form->isSubmitted() && $form->isValid()) {
             $formData = $form->getData();
             $assignItem = $rbacItemFactory->create($formData['type'], $formData['name']);
- 
-            try{
+
+            try {
                 $rbacManager->{$action}($assignItem, $user->getId());
 
                 if (!$configuration->isHtmlRequest()) {
@@ -89,7 +89,7 @@ class UserController extends BaseUserController
 
                     return $this->createRestView($configuration, $responseData, Response::HTTP_OK);
                 }
-            }catch(Exception $e) {
+            } catch(Exception $e) {
                 $responseData = [
                     'message' => $e->getMessage()
                 ];

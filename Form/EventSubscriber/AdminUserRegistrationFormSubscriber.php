@@ -47,7 +47,7 @@ final class AdminUserRegistrationFormSubscriber implements EventSubscriberInterf
 
     private function copyDataToRegistration(array $data): AdminUserRegistrationDataInterface
     {
-        $registration = new $this->classAdminUserRegistrationData;
+        $registration = new $this->classAdminUserRegistrationData();
 
         $registration->setFirstName($data['firstName']);
         $registration->setLastName($data['lastName']);

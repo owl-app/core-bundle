@@ -10,7 +10,7 @@ use Owl\Component\Core\Repository\EquipmentRepositoryInterface;
 
 class EquipmentRepository extends EntityRepository implements EquipmentRepositoryInterface
 {
-    public function findByNamePartWithPermission(?string $phrase = '' , int $limit = 10, QueryBuilder $queryBuilderCreated = null): ?array
+    public function findByNamePartWithPermission(?string $phrase = '', int $limit = 10, QueryBuilder $queryBuilderCreated = null): ?array
     {
         $queryBuilder = $queryBuilderCreated ?? $this->createQueryBuilder('o');
 

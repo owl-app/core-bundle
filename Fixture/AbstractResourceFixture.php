@@ -18,7 +18,7 @@ abstract class AbstractResourceFixture implements FixtureInterface
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        private ObjectManager $objectManager, 
+        private ObjectManager $objectManager,
         private ExampleFactoryInterface $exampleFactory,
         private ?ReferenceRepository $referenceRepository = null
     ) {
@@ -55,9 +55,9 @@ abstract class AbstractResourceFixture implements FixtureInterface
 
             $this->objectManager->persist($resource);
 
-            if(in_array($name, $references)) {
+            if (in_array($name, $references)) {
                 $resourceReferences[$name] = $resource;
-            } 
+            }
 
             ++$i;
 
@@ -108,8 +108,8 @@ abstract class AbstractResourceFixture implements FixtureInterface
     private function prepareReferences(array &$options): array
     {
         $references = [];
-        
-        foreach($options['custom'] as $name => $resourceOptions) {
+
+        foreach ($options['custom'] as $name => $resourceOptions) {
             if ($resourceOptions['reference']) {
                 $references[] = $name;
             }
@@ -122,8 +122,8 @@ abstract class AbstractResourceFixture implements FixtureInterface
 
     private function addReferences(array $resourceReferences): void
     {
-        if($resourceReferences) {
-            foreach($resourceReferences as $name => $resource) {
+        if ($resourceReferences) {
+            foreach ($resourceReferences as $name => $resource) {
                 $this->referenceRepository->addReference($name, $resource);
             }
         }

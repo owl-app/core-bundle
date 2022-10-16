@@ -28,7 +28,7 @@ final class ResourceAjaxValidationListener
         );
     }
 
-    protected function getErrorMessages(FormInterface $form) 
+    protected function getErrorMessages(FormInterface $form)
     {
         $errors = array();
 

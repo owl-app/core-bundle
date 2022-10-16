@@ -28,4 +28,3 @@ final class AcceptRegistrationType extends AbstractResourceType
         return 'owl_accept_registration';
     }
 }
-

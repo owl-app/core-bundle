@@ -17,8 +17,8 @@ use Symfony\Component\Validator\Constraints\Valid;
 final class AdminUserRegistrationType extends AbstractResourceType
 {
     public function __construct(
-        string $dataClass, 
-        array $validationGroups = [], 
+        string $dataClass,
+        array $validationGroups = [],
         private EventSubscriberInterface $adminUserRegistrationFormsubscriber
     ) {
         parent::__construct($dataClass, $validationGroups);

@@ -25,8 +25,8 @@ final class RoleBasedSuffixGridProvider implements SuffixGridProviderInterface
     public function getSuffix(): string
     {
         $roleName = $this->adminUserContext->getRoleCanonicalName();
-        
-        if(isset(self::ROLE_SUFFIX[$roleName ])) {
+
+        if (isset(self::ROLE_SUFFIX[$roleName ])) {
             return '_role_'.self::ROLE_SUFFIX[$roleName ];
         }
 

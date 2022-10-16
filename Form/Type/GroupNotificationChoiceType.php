@@ -13,7 +13,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class GroupNotificationChoiceType extends AbstractType
 {
-    public function __construct(private RepositoryInterface $roleRepository){}
+    public function __construct(private RepositoryInterface $roleRepository)
+    {
+    }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -39,8 +41,8 @@ final class GroupNotificationChoiceType extends AbstractType
         $groups = ['owl.ui.to_all' => NotificationInterface::GROUP_ASSIGNED_ALL];
         $roles = $this->roleRepository->findWithoutAdminSystem();
 
-        if($roles) {
-            foreach($roles as $role) {
+        if ($roles) {
+            foreach ($roles as $role) {
                 $name = $role->getSetting()->getCanonicalName();
                 $groups['owl.ui.notification_group_assigned_'.strtolower($name)] = $name;
             }

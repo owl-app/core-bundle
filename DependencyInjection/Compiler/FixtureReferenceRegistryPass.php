@@ -24,24 +24,24 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
 
         $taggedServices = $container->findTaggedServiceIds(FixtureRegistryPass::FIXTURE_SERVICE_TAG);
 
-        if($taggedServices) {
+        if ($taggedServices) {
             $referenceDefinitions = [];
 
             foreach ($taggedServices as $id => $attributes) {
                 $referenceResource = null;
-    
+
                 foreach ($attributes as $attribute) {
                     if (isset($attribute['reference-resource'])) {
                         $referenceResource = $attribute['reference-resource'];
                     }
                 }
-    
+
                 if (!is_null($referenceResource)) {
                     $definitionFixture = $container->findDefinition($id);
                     $metadata = $resourceRegistry->get($referenceResource);
                     $referenceSerivceName = $this->getReferenceServiceName($metadata);
                     $referenceDefinition = $this->getReferenceDefinition($metadata);
-    
+
                     $referenceDefinitions[$referenceSerivceName] = $referenceDefinition;
 
                     $container->addDefinitions($referenceDefinitions);
@@ -49,13 +49,11 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
                     $definitionFixture->addArgument(new Reference($referenceSerivceName));
                 }
             }
-
-            
         }
     }
 
     protected function getReferenceDefinition(MetadataInterface $metadata): Definition
-    { 
+    {
         $definition = new Definition(ReferenceRepository::class);
         $definition
             ->setArguments([new Reference($metadata->getServiceId('manager'))])
@@ -64,7 +62,8 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
         return $definition;
     }
 
-    private function getReferenceServiceName(MetadataInterface $metadata): string {
+    private function getReferenceServiceName(MetadataInterface $metadata): string
+    {
         return $metadata->getApplicationName().'.fixture.reference.'.$metadata->getName();
     }
 }

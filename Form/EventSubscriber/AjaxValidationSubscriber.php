@@ -46,7 +46,7 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
         }
     }
 
-    protected function getErrorMessages(Form $form) 
+    protected function getErrorMessages(Form $form)
     {
         $errors = array();
 

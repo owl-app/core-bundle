@@ -32,7 +32,7 @@ final class EquipmentFiledsByRoleSubscriber implements EventSubscriberInterface
         $data = $event->getData();
         $isUser = $this->adminUserContext->isUser();
 
-        if($data instanceof OwnerableUserInterface && ($isUser)) {
+        if ($data instanceof OwnerableUserInterface && ($isUser)) {
             $form->remove('symbol');
             $form->remove('unit');
             $form->remove('price');

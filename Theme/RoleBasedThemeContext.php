@@ -30,7 +30,7 @@ final class RoleBasedThemeContext implements ThemeContextInterface
         try {
             $themeName = $this->adminUserContext->getTheme();
 
-            if($themeName) {
+            if ($themeName) {
                 return $this->themeRepository->findOneByName($themeName);
             }
 

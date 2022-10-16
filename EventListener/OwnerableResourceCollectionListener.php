@@ -22,8 +22,8 @@ final class OwnerableResourceCollectionListener
         $expressionBuilder = $event->getExpressionBuilder();
         $ownerCondition = $this->ownerConditionProvider->provide($dataClass);
 
-        if($ownerCondition) {
-            if($expressionBuilder) {
+        if ($ownerCondition) {
+            if ($expressionBuilder) {
                 $expression = $ownerCondition->getExpression($expressionBuilder);
 
                 $event->addExpression($expression);

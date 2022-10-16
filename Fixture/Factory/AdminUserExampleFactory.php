@@ -49,11 +49,11 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
         $user->addRole($options['role']);
         $user->setLocaleCode($options['locale_code']);
 
-        if(isset($options['company_reference']) && $this->companyReference->hasReference($options['company_reference'])) {
+        if (isset($options['company_reference']) && $this->companyReference->hasReference($options['company_reference'])) {
             $user->setCompany($this->companyReference->getReference($options['company_reference']));
         }
 
-        if(isset($options['role_reference']) && $this->companyReference->hasReference($options['role_reference'])) {
+        if (isset($options['role_reference']) && $this->companyReference->hasReference($options['role_reference'])) {
             $user->setRole($this->companyReference->getReference($options['role_reference']));
         }
 

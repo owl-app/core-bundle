@@ -32,4 +32,3 @@ final class AdminUserAcceptRegistrationType extends AbstractResourceType
         return 'owl_admin_user_confirm_registration';
     }
 }
-

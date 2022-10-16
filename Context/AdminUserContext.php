@@ -40,7 +40,7 @@ final class AdminUserContext implements AdminUserContextInterface
     {
         $company = $this->getUser()->getCompany();
 
-        if($company instanceof CompanyInterface) {
+        if ($company instanceof CompanyInterface) {
             return $company;
         }
 
@@ -51,7 +51,7 @@ final class AdminUserContext implements AdminUserContextInterface
     {
         $setting = $this->getRoleSetting();
 
-        if($setting) {
+        if ($setting) {
             return $setting->getCanonicalName();
         }
 
@@ -62,7 +62,7 @@ final class AdminUserContext implements AdminUserContextInterface
     {
         $setting = $this->getRoleSetting();
 
-        if($setting) {
+        if ($setting) {
             return $setting->getTheme();
         }
 
@@ -73,12 +73,12 @@ final class AdminUserContext implements AdminUserContextInterface
     {
         $user = $this->getUser();
 
-        if(!$user instanceof RoleAwareInterface) {
+        if (!$user instanceof RoleAwareInterface) {
             return null;
         }
 
         $role = $user->getRole();
-        if($role instanceof RoleInterface) {
+        if ($role instanceof RoleInterface) {
             return $role->getSetting();
         }
 

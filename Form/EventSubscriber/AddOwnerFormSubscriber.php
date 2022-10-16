@@ -35,14 +35,14 @@ final class AddOwnerFormSubscriber implements EventSubscriberInterface
         $isAdminSystem = $this->adminUserContext->isAdminSystem();
         $isAdminCompany = $this->adminUserContext->isAdminCompany();
 
-        if($data instanceof OwnerableUserInterface && ($isAdminSystem || $isAdminCompany)) {
+        if ($data instanceof OwnerableUserInterface && ($isAdminSystem || $isAdminCompany)) {
             $form
                 ->add('user', UserChoiceType::class, [
                     'label' => 'owl.form.common.assign_user',
                 ]);
         }
 
-        if($isAdminSystem) {
+        if ($isAdminSystem) {
             $form->add('company', CompanyChoiceType::class, [
                 'label' => 'owl.form.common.assign_company',
             ]);

@@ -41,4 +41,3 @@ final class AdminUserRegistrationDataType extends AbstractResourceType
         return 'owl_admin_user_registration_data';
     }
 }
-
