@@ -28,13 +28,15 @@ final class RoleBasedThemeContext implements ThemeContextInterface
     public function getTheme(): ?ThemeInterface
     {
         try {
-            $themeName = $this->adminUserContext->getTheme();
+            if($this->adminUserContext->getUser()) {
+                $themeName = $this->adminUserContext->getTheme();
 
-            if ($themeName) {
-                return $this->themeRepository->findOneByName($themeName);
+                if ($themeName) {
+                    return $this->themeRepository->findOneByName($themeName);
+                }
+    
+                throw new ThemeNotFoundException();
             }
-
-            throw new ThemeNotFoundException();
         } catch (\Exception $exception) {
             return null;
         }
