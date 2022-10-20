@@ -66,11 +66,6 @@ final class AdminUserType extends UserType
                 'label' => 'owl.form.user.role',
             ])
             ->add('localeCode', LocaleType::class, $this->provideLocaleCodeOptions())
-            ->add('mailboxes', MailboxChoiceType::class, [
-                'multiple' => true,
-                'expanded' => false,
-                'label' => 'owl.form.user.mailboxes',
-            ])
         ;
 
         $builder->addEventSubscriber(new AddRoleSubscriber());
