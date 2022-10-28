@@ -25,6 +25,7 @@ class RbacRoleFixture extends AbstractResourceFixture
                         ->scalarNode('theme')->end()
                     ->end()
                 ->end()
+                ->booleanNode('all_permissions')->end()
         ;
     }
 }

@@ -18,6 +18,8 @@ sylius_fixtures:
                 #             - 'pt_PT'
                 #             - 'zh_CN'
 
+                rbac_permission:
+
                 rbac_role:
                     options:
                         custom:
@@ -28,6 +30,7 @@ sylius_fixtures:
                                 setting:
                                     canonical_name: ROLE_ADMIN_SYSTEM
                                     theme: owl/admin
+                                all_permissions: true
                             admin_company:
                                 reference: true
                                 name: 'Administrator firmy'
@@ -43,41 +46,41 @@ sylius_fixtures:
                                     canonical_name: ROLE_USER
                                     theme: owl/user
 
-                company:
-                    options:
-                        custom:
-                            test:
-                                reference: true
-                                name: 'Testowa'
-                                nip: '11111'
-                                city: 'Radom'
-                                street: 'Focha 90'
-                                post_code: '26-600'
-                                phone: '777 888 999'
-                                email: 'test@test.pl'
-                            test2:
-                                name: 'Testowa 2'
-                                nip: '11111'
-                                city: 'Radom'
-                                street: 'Focha 90'
-                                post_code: '26-600'
-                                phone: '777 888 999'
-                                email: 'test@test.pl'
+                # company:
+                #     options:
+                #         custom:
+                #             test:
+                #                 reference: true
+                #                 name: 'Testowa'
+                #                 nip: '11111'
+                #                 city: 'Radom'
+                #                 street: 'Focha 90'
+                #                 post_code: '26-600'
+                #                 phone: '777 888 999'
+                #                 email: 'test@test.pl'
+                #             test2:
+                #                 name: 'Testowa 2'
+                #                 nip: '11111'
+                #                 city: 'Radom'
+                #                 street: 'Focha 90'
+                #                 post_code: '26-600'
+                #                 phone: '777 888 999'
+                #                 email: 'test@test.pl'
 
-                admin_user:
-                    name: 'admin_user'
-                    options:
-                        custom:
-                            admin_system:
-                                company_reference: test
-                                role_reference: admin_system
-                                display_name: John Doe
-                                first_name: 'John'
-                                last_name: 'Doe'
-                                phone: '1111111111'
-                                email: 'owl@owl.com'
-                                password: 'test123'
-                                enabled: true
-                                locale_code: '%locale%'
-                                role: ROLE_ADMIN_SYSTEM
+                # admin_user:
+                #     name: 'admin_user'
+                #     options:
+                #         custom:
+                #             admin_system:
+                #                 company_reference: test
+                #                 role_reference: admin_system
+                #                 display_name: John Doe
+                #                 first_name: 'John'
+                #                 last_name: 'Doe'
+                #                 phone: '1111111111'
+                #                 email: 'owl@owl.com'
+                #                 password: 'test123'
+                #                 enabled: true
+                #                 locale_code: '%locale%'
+                #                 role: ROLE_ADMIN_SYSTEM
 

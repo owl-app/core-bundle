@@ -6,6 +6,8 @@
 
         <service id="owl.fixture.example_factory.rbac_role" class="Owl\Bundle\CoreBundle\Fixture\Factory\RbacRoleExampleFactory">
             <argument type="service" id="owl.factory.rbac_role" />
+            <argument type="service" id="owl.fixture.reference.rbac_permission" />
+            <argument type="service" id="owl.routes_permission_provider.rbac" />
         </service>
 
         <service id="owl.fixture.example_factory.rbac_permission" class="Owl\Bundle\CoreBundle\Fixture\Factory\RbacPermissionExampleFactory">

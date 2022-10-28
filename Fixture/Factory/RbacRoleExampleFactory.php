@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Fixture\Factory;
 
+use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Faker\Generator;
 use Faker\Factory;
 use Owl\Component\Core\Model\Rbac\RoleInterface;
 use Owl\Component\Core\Model\Rbac\RoleSetting;
+use Owl\Component\Rbac\Provider\RoutesPermissionProviderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -19,7 +21,9 @@ class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFa
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        private FactoryInterface $rbacRoleFactory
+        private FactoryInterface $rbacRoleFactory,
+        private ReferenceRepository $permissionReference,
+        private RoutesPermissionProviderInterface $routesPermissionProvider
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -44,6 +48,10 @@ class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFa
             $rbacRole->setSetting($shopBillingData);
         }
 
+        if($options['all_permissions']) {
+            $this->assignAllPermissions($rbacRole);
+        }
+
         return $rbacRole;
     }
 
@@ -56,6 +64,18 @@ class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFa
             })
             ->setDefined('setting')
             ->setAllowedTypes('setting', ['array'])
+            ->setDefault('all_permissions', false)
         ;
+    }
+
+    private function assignAllPermissions(RoleInterface $role): void
+    {
+        $routes = $this->routesPermissionProvider->getPermissions();
+
+        foreach ($routes as $name => $route) {
+            if ($this->permissionReference->hasReference($name)) {
+                $role->addPermission($this->permissionReference->getReference($name));
+            }
+        }
     }
 }

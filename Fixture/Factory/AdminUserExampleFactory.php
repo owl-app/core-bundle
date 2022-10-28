@@ -53,8 +53,8 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
             $user->setCompany($this->companyReference->getReference($options['company_reference']));
         }
 
-        if (isset($options['role_reference']) && $this->companyReference->hasReference($options['role_reference'])) {
-            $user->setRole($this->companyReference->getReference($options['role_reference']));
+        if (isset($options['role_reference']) && $this->roleReference->hasReference($options['role_reference'])) {
+            $user->setRole($this->roleReference->getReference($options['role_reference']));
         }
 
         return $user;
