@@ -4,12 +4,12 @@
     <services>
         <defaults public="true" />
 
-        <!-- <service id="sylius.fixture.locale" class="Owl\Bundle\CoreBundle\Fixture\LocaleFixture">
+        <service id="sylius.fixture.locale" class="Owl\Bundle\CoreBundle\Fixture\LocaleFixture">
             <argument type="service" id="owl.factory.locale" />
             <argument type="service" id="owl.manager.locale" />
             <argument>%locale%</argument>
             <tag name="sylius_fixtures.fixture" />
-        </service> -->
+        </service>
 
         <service id="owl.fixture.rbac_permission" class="Owl\Bundle\CoreBundle\Fixture\RbacPermissionFixture">
             <argument type="service" id="owl.manager.rbac_permission" />
@@ -34,6 +34,12 @@
             <argument type="service" id="owl.manager.admin_user" />
             <argument type="service" id="owl.fixture.example_factory.admin_user" />
             <tag name="sylius_fixtures.fixture" reference-resource="owl.admin_user" />
+        </service>
+
+        <service id="owl.fixture.setting" class="Owl\Bundle\CoreBundle\Fixture\SettingFixture">
+            <argument type="service" id="owl.manager.setting" />
+            <argument type="service" id="owl.fixture.example_factory.setting" />
+            <tag name="sylius_fixtures.fixture" reference-resource="owl.setting" />
         </service>
 
     </services>

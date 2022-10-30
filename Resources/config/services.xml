@@ -14,6 +14,7 @@
         <import resource="services/emails.xml" />
         <import resource="services/controller.xml" />
         <import resource="services/checkers.xml" />
+        <import resource="services/fixtures_listeners.xml" />
         <import resource="services/fixtures_factories.xml" />
         <import resource="services/fixtures.xml" />
         <import resource="services/equipment.xml" />

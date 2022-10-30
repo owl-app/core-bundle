@@ -25,5 +25,10 @@
             <argument>%locale%</argument>
         </service>
 
+        <service id="owl.fixture.example_factory.setting" class="Owl\Bundle\CoreBundle\Fixture\Factory\SettingExampleFactory">
+            <argument type="service" id="owl.factory.setting" />
+            <argument>%locale%</argument>
+        </service>
+
     </services>
 </container>

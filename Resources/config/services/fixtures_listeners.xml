@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="sylius_fixtures.listener.user_role_assigner" class="Owl\Bundle\CoreBundle\Fixture\Listener\UserRoleAssignerListener" public="false">
+            <argument type="service" id="owl.single_role_updater" />
+            <argument type="service" id="owl.repository.admin_user" />
+            <tag name="sylius_fixtures.listener" />
+        </service>
+
+    </services>
+</container>

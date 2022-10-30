@@ -2,21 +2,22 @@ sylius_fixtures:
     suites:
         default:
             listeners:
-                # orm_purger: ~
+                orm_purger: ~
                 logger: ~
+                user_role_assigner: ~
 
             fixtures:
-                # locale:
-                #     options:
-                #         locales:
-                #             - 'en_US'
-                #             - 'de_DE'
-                #             - 'fr_FR'
-                #             - 'pl_PL'
-                #             - 'es_ES'
-                #             - 'es_MX'
-                #             - 'pt_PT'
-                #             - 'zh_CN'
+                locale:
+                    options:
+                        locales:
+                            - 'en_US'
+                            - 'de_DE'
+                            - 'fr_FR'
+                            - 'pl_PL'
+                            - 'es_ES'
+                            - 'es_MX'
+                            - 'pt_PT'
+                            - 'zh_CN'
 
                 rbac_permission:
 
@@ -46,41 +47,54 @@ sylius_fixtures:
                                     canonical_name: ROLE_USER
                                     theme: owl/user
 
-                # company:
-                #     options:
-                #         custom:
-                #             test:
-                #                 reference: true
-                #                 name: 'Testowa'
-                #                 nip: '11111'
-                #                 city: 'Radom'
-                #                 street: 'Focha 90'
-                #                 post_code: '26-600'
-                #                 phone: '777 888 999'
-                #                 email: 'test@test.pl'
-                #             test2:
-                #                 name: 'Testowa 2'
-                #                 nip: '11111'
-                #                 city: 'Radom'
-                #                 street: 'Focha 90'
-                #                 post_code: '26-600'
-                #                 phone: '777 888 999'
-                #                 email: 'test@test.pl'
+                company:
+                    options:
+                        custom:
+                            test:
+                                reference: true
+                                name: 'Testowa'
+                                nip: '11111'
+                                city: 'Radom'
+                                street: 'Focha 90'
+                                post_code: '26-600'
+                                phone: '777 888 999'
+                                email: 'test@test.pl'
+                            test2:
+                                name: 'Testowa 2'
+                                nip: '11111'
+                                city: 'Radom'
+                                street: 'Focha 90'
+                                post_code: '26-600'
+                                phone: '777 888 999'
+                                email: 'test@test.pl'
 
-                # admin_user:
-                #     name: 'admin_user'
-                #     options:
-                #         custom:
-                #             admin_system:
-                #                 company_reference: test
-                #                 role_reference: admin_system
-                #                 display_name: John Doe
-                #                 first_name: 'John'
-                #                 last_name: 'Doe'
-                #                 phone: '1111111111'
-                #                 email: 'owl@owl.com'
-                #                 password: 'test123'
-                #                 enabled: true
-                #                 locale_code: '%locale%'
-                #                 role: ROLE_ADMIN_SYSTEM
+                admin_user:
+                    name: 'admin_user'
+                    options:
+                        custom:
+                            admin_system:
+                                company_reference: test
+                                role_reference: admin_system
+                                display_name: John Doe
+                                first_name: 'John'
+                                last_name: 'Doe'
+                                phone: '1111111111'
+                                email: 'owl@owl.com'
+                                password: 'test123'
+                                enabled: true
+                                locale_code: pl
+                                role: ROLE_ADMIN_SYSTEM
+
+                setting:
+                    options:
+                        custom:
+                            login_page:
+                                section: system
+                                name: description_login_page
+                                lang: pl
+                            dashboard:
+                                section: system
+                                name: description_dashboard
+                                lang: pl
+
 
