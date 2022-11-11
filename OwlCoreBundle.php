@@ -3,6 +3,7 @@
 namespace Owl\Bundle\CoreBundle;
 
 use Owl\Bridge\SyliusResourceBridge\DependencyInjection\Compiler\ActionsResourcePass;
+use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\BackwardsCompatibility\Symfony6PrivateServicesPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\CompositeOwnerableConditionPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\FixtureReferenceRegistryPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterListenerOwnerableCollectionPass;
@@ -32,6 +33,7 @@ final class OwlCoreBundle extends AbstractResourceBundle
         $container->addCompilerPass(new CompositeOwnerableConditionPass());
         $container->addCompilerPass(new RegisterListenerOwnerableCompanyPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1);
         $container->addCompilerPass(new RegisterListenerOwnerableCollectionPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1);
+        $container->addCompilerPass(new Symfony6PrivateServicesPass());
     }
 
     protected function getModelNamespace(): string
