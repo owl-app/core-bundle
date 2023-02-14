@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Controller;
 
 use Exception;
-use Owl\Bridge\SyliusResourceBridge\Controller\BaseController;
+use Owl\Bridge\SyliusResource\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Owl\Bundle\RbacBundle\Factory\PermissionFormFactoryInterface;

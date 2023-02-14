@@ -25,10 +25,6 @@
             <argument type="service" id="owl.context.admin_user" />
         </service>
 
-        <service id="owl.listener.ownerable_permission_collection" class="Owl\Bundle\CoreBundle\EventListener\OwnerableResourceCollectionListener">
-            <argument type="service" id="owl.authorization.owner.condition" />
-        </service>
-
         <service id="sylius.listener.password_updater" class="Owl\Bundle\UserBundle\EventListener\PasswordUpdaterListener">
             <argument type="service" id="owl.security.password_updater" />
             <tag name="kernel.event_listener" event="sylius.user.pre_password_reset" method="genericEventUpdater" />

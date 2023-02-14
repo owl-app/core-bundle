@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\DependencyInjection;
 
-use Owl\Bridge\SyliusResourceBridge\Controller\BaseController;
+use Owl\Bridge\SyliusResource\Controller\BaseController;
 use Owl\Bundle\CoreBundle\Controller\UserController;
 use Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentEventRepository;
 use Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentRefuelingRepository;

@@ -3,4 +3,4 @@ owl_setting:
         setting:
             classes:
                 model: Owl\Component\Core\Model\Setting
-                controller: Owl\Bridge\SyliusResourceBridge\Controller\BaseController
+                controller: Owl\Bridge\SyliusResource\Controller\BaseController
