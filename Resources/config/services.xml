@@ -7,7 +7,6 @@
         <import resource="services/listeners.xml" />
         <import resource="services/context.xml" />
         <import resource="services/templating.xml" />
-        <import resource="services/integrations/grid.xml" />
         <import resource="services/validators.xml" />
         <import resource="services/actions.xml" />
         <import resource="services/authorization.xml" />
