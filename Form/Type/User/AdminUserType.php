@@ -58,10 +58,6 @@ final class AdminUserType extends UserType
                 'required' => false,
                 'label' => 'owl.form.user.note',
             ])
-            ->add('mailboxFooter', TextareaType::class, [
-                'required' => false,
-                'label' => 'owl.form.user.mailbox_footer',
-            ])
             ->add('role', RoleChoiceType::class, [
                 'label' => 'owl.form.user.role',
             ])

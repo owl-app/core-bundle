@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type;
 
+use Owl\Bridge\SyliusResource\Doctrine\Orm\CollectionProviderInterface;
 use Owl\Component\Core\Authorization\Owner\OwnerConditionProviderInterface;
 use Owl\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -14,20 +15,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class UserChoiceType extends AbstractType
 {
-    private RepositoryInterface $userRepository;
 
-    private OwnerConditionProviderInterface $ownerConditionProvider;
-
-    public function __construct(RepositoryInterface $userRepository, OwnerConditionProviderInterface $ownerConditionProvider)
-    {
-        $this->userRepository = $userRepository;
-        $this->ownerConditionProvider = $ownerConditionProvider;
+    public function __construct(
+        private RepositoryInterface $userRepository,
+        private CollectionProviderInterface $collectionProvider
+    ) {
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => $this->getUsers(),
+            'choices' => $this->collectionProvider->get($this->userRepository),
             'choice_value' => 'id',
             'choice_label' => 'displayName',
             'label' => false,

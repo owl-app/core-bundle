@@ -137,7 +137,7 @@
 
         <service id="owl.form.type.user_choice" class="Owl\Bundle\CoreBundle\Form\Type\UserChoiceType">
             <argument type="service" id="owl.repository.admin_user" />
-            <argument type="service" id="owl.authorization.owner.condition" />
+            <argument type="service" id="owl.resource_controller.orm.collection_provider" />
             <tag name="form.type" />
         </service>
 

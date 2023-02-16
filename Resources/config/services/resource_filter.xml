@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="owl.resource_filter.company" class="Owl\Component\Core\Resource\Filter\CompanyResourceFilter" public="false">
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="owl.resource_filter" type="company" />
+        </service>
+
+        <service id="owl.resource_filter.owner_company" class="Owl\Component\Core\Resource\Filter\OwnerCompanyResourceFilter" public="false">
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="owl.resource_filter" type="owner_company" />
+        </service>
+
+        <service id="owl.resource_filter.owner_user" class="Owl\Component\Core\Resource\Filter\OwnerUserResourceFilter" public="false">
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="owl.resource_filter" type="owner_user" />
+        </service>
+
+        <service id="owl.resource_filter.owner_many_companies" class="Owl\Component\Core\Resource\Filter\OwnerManyCompanyResourceFilter" public="false">
+            <argument type="service" id="owl.context.admin_user" />
+            <tag name="owl.resource_filter" type="owner_many_companies" />
+        </service>
+    </services>
+</container>

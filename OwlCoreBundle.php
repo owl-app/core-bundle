@@ -3,7 +3,6 @@
 namespace Owl\Bundle\CoreBundle;
 
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\BackwardsCompatibility\Symfony6PrivateServicesPass;
-use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\CompositeOwnerableConditionPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\FixtureReferenceRegistryPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterListenerOwnerableCompanyPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterGridDateFilterPass;
@@ -27,7 +26,6 @@ final class OwlCoreBundle extends AbstractResourceBundle
 
         $container->addCompilerPass(new RegisterGridDateFilterPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1);
         $container->addCompilerPass(new FixtureReferenceRegistryPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1);
-        $container->addCompilerPass(new CompositeOwnerableConditionPass());
         $container->addCompilerPass(new RegisterListenerOwnerableCompanyPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -1);
         $container->addCompilerPass(new Symfony6PrivateServicesPass());
     }

@@ -18,6 +18,7 @@
         <import resource="services/fixtures.xml" />
         <import resource="services/equipment.xml" />
         <import resource="services/commands.xml" />
+        <import resource="services/resource_filter.xml" />
     </imports>
 
     <services>
@@ -25,10 +26,6 @@
 
         <service id="owl.grid_filter.entities" class="Owl\Component\Core\Grid\Filter\EntitiesFilter">
             <tag name="sylius.grid_filter" type="entities" form-type="Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\EntitiesFilterType" />
-        </service>
-
-        <service id="owl.grid_filter.location" class="Owl\Component\Core\Grid\Filter\LocationFilter">
-            <tag name="sylius.grid_filter" type="location" form-type="Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\LocationFilterType" />
         </service>
 
         <service id="owl.grid_filter.date" class="Owl\Component\Core\Grid\Filter\DateFilter" />
