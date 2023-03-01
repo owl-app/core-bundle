@@ -142,6 +142,10 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
                         'namespace_prefix' => 'Owl\Component\Core',
                         'path' => '@OwlCoreBundle/Resources/config/serializer',
                     ],
+                    'owl-core-rbac' => [
+                        'namespace_prefix' => 'Owl\Component\Rbac',
+                        'path' => '@OwlCoreBundle/Resources/config/serializer/rbac',
+                    ]
                 ],
             ],
             'property_naming' => [
