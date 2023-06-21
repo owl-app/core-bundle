@@ -41,5 +41,8 @@
             <tag name="kernel.event_listener" event="owl.admin_user_registration_data.post_change_status_registration" method="handleChangeStatusRegistration" />
         </service>
 
+        <service id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener" decorates="locale_aware_listener">
+            <argument type="service" id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener.inner" />
+        </service>
     </services>
 </container>

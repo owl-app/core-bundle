@@ -98,5 +98,16 @@
             <argument type="service" id="sylius.email_sender" />
             <argument type="service" id="owl.repository.admin_user" />
         </service>
+
+        <service id="owl.form.type.user_update_profile" class="Owl\Bundle\CoreBundle\Form\Type\User\UserUpdateProfileType">
+            <argument>%owl.model.admin_user.class%</argument>
+            <argument>%owl.form.type.admin_user_update_profile.validation_groups%</argument>
+            <argument type="service" id="owl.repository.locale" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener" decorates="locale_aware_listener">
+            <argument type="service" id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener.inner" />
+        </service>
     </services>
 </container>

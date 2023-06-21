@@ -22,6 +22,9 @@
         <parameter key="owl.form.type.admin_user_registration_reject.validation_groups" type="collection">
             <parameter>admin_user_registration_reject</parameter>
         </parameter>
+        <parameter key="owl.form.type.admin_user_update_profile.validation_groups" type="collection">
+            <parameter>admin_user_update_profile</parameter>
+        </parameter>
     </parameters>
 
     <services>
