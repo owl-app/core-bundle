@@ -1,0 +1,25 @@
+owl:
+    admin_user:
+        invalid_count_role_to_user: User role can be assigned to one company
+        invalid_count_role_to_admin_system: System administrator cannot have a company assigned to it
+    common:
+        not_blank: Field cannot be empty
+        greater_then_today: Date must be greater than today
+    equipment_event: 
+        mileage_greather_then_previous: Counter value must be greater than {{ mileage }}
+    locale:
+        enabled:
+            cannot_disable_base: Basic locale cannot be disabled.
+    product_attribute:
+        invalid: Position must be number.
+    user:
+        email:
+            unique: This e-mail is already in use
+            min: E-mail must contain at least {{ min }} characters.
+            max: E- mail cannot be longer than {{ max }} characters.
+            invalid: This e-mail is invalid.
+        username:
+            unique: This username is already in use.
+            not_blank: Enter your name.
+        locale_code:
+            not_blank: Please select a locale.
