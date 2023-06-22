@@ -109,5 +109,6 @@
         <service id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener" decorates="locale_aware_listener">
             <argument type="service" id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener.inner" />
         </service>
+
     </services>
 </container>

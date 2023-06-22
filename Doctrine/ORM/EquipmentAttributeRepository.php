@@ -10,15 +10,13 @@ use Owl\Component\Core\Repository\EquipmentAttributeRepositoryInterface;
 
 class EquipmentAttributeRepository extends EntityRepository implements EquipmentAttributeRepositoryInterface
 {
-    public function findByCategory($categoryId): array
+    public function findByCategory($categoryId): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');
 
         return $queryBuilder
             ->andWhere('o.category = :categoryId')
             ->setParameter('categoryId', $categoryId)
-            ->getQuery()
-            ->getResult()
         ;
     }
 }

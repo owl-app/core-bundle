@@ -9,6 +9,7 @@ use Owl\Bundle\CoreBundle\Controller\UserController;
 use Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentEventRepository;
 use Owl\Bundle\CoreBundle\Doctrine\ORM\EquipmentRefuelingRepository;
 use Owl\Bundle\CoreBundle\Doctrine\ORM\HistoryEquipmentLocationRepository;
+use Owl\Bundle\CoreBundle\Doctrine\ORM\NotificationAcceptedRepository;
 use Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentEventType;
 use Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentRefuelingType;
 use Owl\Component\Core\Model\AdminUserRegistrationData;
@@ -109,7 +110,9 @@ final class Configuration implements ConfigurationInterface
                                 ->arrayNode('classes')
                                     ->addDefaultsIfNotSet()
                                     ->children()
+                                        ->scalarNode('controller')->defaultValue(BaseController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('model')->defaultValue(NotificationAccepted::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->defaultValue(NotificationAcceptedRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
                                 ->end()

@@ -6,5 +6,18 @@
 >
     <mapped-superclass name="Owl\Component\Core\Model\EquipmentCategory" table="owl_equipment_category">
 
+        <field name="addons" column="addons" type="json_array" nullable="true" />
+
+        <one-to-many
+            field="equipments"
+            target-entity="Owl\Component\Core\Model\EquipmentInterface"
+            mapped-by="category"
+            orphan-removal="false"
+        >
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
     </mapped-superclass>
 </doctrine-mapping>
