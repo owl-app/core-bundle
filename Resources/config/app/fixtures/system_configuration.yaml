@@ -20,23 +20,23 @@ sylius_fixtures:
                         custom:
                             admin_system:
                                 reference: true
-                                name: 'Administrator systemu'
-                                description: 'Administrator systemu'
+                                name: 'Admin system'
+                                description: 'Admin system'
                                 setting:
                                     canonical_name: ROLE_ADMIN_SYSTEM
                                     theme: owl/admin
                                 all_permissions: true
                             admin_company:
                                 reference: true
-                                name: 'Administrator firmy'
-                                description: 'Administrator firmy'
+                                name: 'Admin company'
+                                description: 'Admin company'
                                 setting:
                                     canonical_name: ROLE_ADMIN_COMPANY
                                     theme: owl/admin-company
                             user:
                                 reference: true
-                                name: 'Użytkownik'
-                                description: 'Użytkownik'
+                                name: 'User'
+                                description: 'User'
                                 setting:
                                     canonical_name: ROLE_USER
                                     theme: owl/user
@@ -52,7 +52,7 @@ sylius_fixtures:
                                 street: 'Focha 90'
                                 post_code: '26-600'
                                 phone: '777 888 999'
-                                email: 'test@test.pl'
+                                email: 'test@owl.pl'
                             test2:
                                 name: 'Testowa 2'
                                 nip: '11111'
@@ -60,7 +60,7 @@ sylius_fixtures:
                                 street: 'Focha 90'
                                 post_code: '26-600'
                                 phone: '777 888 999'
-                                email: 'test@test.pl'
+                                email: 'test_2@owl.pl'
 
                 admin_user:
                     name: 'admin_user'
