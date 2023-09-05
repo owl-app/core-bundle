@@ -7,7 +7,13 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 use Owl\Component\Core\Model\RoleAwareInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Rbac\Repository\RoleRepositoryInterface;
+use Owl\Component\Rbac\Model\RoleInterface;
 
+/**
+ * @template T of RoleInterface
+ *
+ * @implements RoleRepositoryInterface<T>
+ */
 class RoleRepository extends EntityRepository implements RoleRepositoryInterface
 {
     public function findWithoutAdminSystem(): array
