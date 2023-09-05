@@ -29,6 +29,11 @@ final class AvatarImageType extends ImageType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'sylius_avatar_image'
+     */
     public function getBlockPrefix(): string
     {
         return 'sylius_avatar_image';

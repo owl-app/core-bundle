@@ -26,6 +26,11 @@ final class BundleLoadedCheckerExtension extends AbstractExtension
         $this->listOfBundles = $listOfBundles;
     }
 
+    /**
+     * @return TwigFunction[]
+     *
+     * @psalm-return list{TwigFunction}
+     */
     public function getFunctions(): array
     {
         return [

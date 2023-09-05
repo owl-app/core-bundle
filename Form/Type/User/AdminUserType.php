@@ -68,11 +68,21 @@ final class AdminUserType extends UserType
         $builder->addEventSubscriber($this->addOwnerFormSubscriber);
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'sylius_admin_user'
+     */
     public function getBlockPrefix(): string
     {
         return 'sylius_admin_user';
     }
 
+    /**
+     * @return (null|string|string[])[]
+     *
+     * @psalm-return array{label: 'owl.ui.locale', placeholder: null, preferred_choices?: list{string}}
+     */
     private function provideLocaleCodeOptions(): array
     {
         $localeCodeOptions = [

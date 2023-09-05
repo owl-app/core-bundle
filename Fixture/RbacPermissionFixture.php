@@ -25,6 +25,11 @@ class RbacPermissionFixture implements FixtureInterface
         $this->exampleFactory = $exampleFactory;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'rbac_permission'
+     */
     public function getName(): string
     {
         return 'rbac_permission';

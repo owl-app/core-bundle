@@ -10,6 +10,9 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class EquipmentRefuelingRepository extends EntityRepository implements EquipmentRefuelingRepositoryInterface
 {
+    /**
+     * @return QueryBuilder
+     */
     public function findForEquipment(string $equipmentId): QueryBuilder
     {
         return $this->createQueryBuilder('o')

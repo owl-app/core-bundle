@@ -23,6 +23,11 @@ final class MoneyTypeExtension extends AbstractTypeExtension
         $view->vars['currency'] = $options['currency'] ?? $this->defaultCurrency;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{MoneyType::class}
+     */
     public static function getExtendedTypes(): array
     {
         return [MoneyType::class];

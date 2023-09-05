@@ -22,7 +22,12 @@ final class EquipmentCategoryChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => function (Options $options): array {
+            'choices' => /**
+             * @return \Sylius\Component\Resource\Model\ResourceInterface[]
+             *
+             * @psalm-return array<T>
+             */
+            function (Options $options): array {
                 return $this->equipmentCategoryRepository->findAll();
             },
             'choice_value' => 'id',
@@ -33,11 +38,21 @@ final class EquipmentCategoryChoiceType extends AbstractType
         ]);
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return ChoiceType::class
+     */
     public function getParent(): string
     {
         return ChoiceType::class;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_equipment_category_choice'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_equipment_category_choice';

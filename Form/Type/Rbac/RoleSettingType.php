@@ -39,6 +39,11 @@ final class RoleSettingType extends AbstractResourceType
         $resolver->setAllowedTypes('disabled_name', 'bool');
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_rbac_role_setting'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_rbac_role_setting';

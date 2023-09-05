@@ -50,6 +50,11 @@ class LocaleFixture extends AbstractFixture
         $this->localeManager->flush();
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'locale'
+     */
     public function getName(): string
     {
         return 'locale';

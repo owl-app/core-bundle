@@ -11,6 +11,9 @@ use Owl\Component\Core\Repository\EquipmentEventRepositoryInterface;
 
 class EquipmentEventRepository extends EntityRepository implements EquipmentEventRepositoryInterface
 {
+    /**
+     * @return QueryBuilder
+     */
     public function findForEquipment(string $equipmentId): QueryBuilder
     {
         return $this->createQueryBuilder('o')

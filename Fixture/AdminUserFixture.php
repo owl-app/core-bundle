@@ -8,6 +8,11 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 class AdminUserFixture extends AbstractResourceFixture
 {
+    /**
+     * @return string
+     *
+     * @psalm-return 'admin_user'
+     */
     public function getName(): string
     {
         return 'admin_user';

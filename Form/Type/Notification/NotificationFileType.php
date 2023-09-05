@@ -8,6 +8,11 @@ use Owl\Bundle\FileBundle\Form\Type\FileType;
 
 final class NotificationFileType extends FileType
 {
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_notification_file'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_notification_file';

@@ -28,7 +28,10 @@ final class ResourceAjaxValidationListener
         );
     }
 
-    protected function getErrorMessages(FormInterface $form)
+    /**
+     * @psalm-return array<int<0, max>|string, mixed>
+     */
+    protected function getErrorMessages(FormInterface $form): array
     {
         $errors = array();
 

@@ -46,6 +46,11 @@ class EquipmentEventType extends AbstractResourceType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_equipment_event'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_equipment_event';

@@ -25,6 +25,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 final class AjaxValidationSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{'form.post_submit': 'submit'}
+     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -32,6 +37,9 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * @return JsonResponse|null
+     */
     public function submit(FormEvent $event)
     {
         $data = $event->getData();
@@ -46,7 +54,10 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
         }
     }
 
-    protected function getErrorMessages(Form $form)
+    /**
+     * @psalm-return array<int<0, max>|string, mixed>
+     */
+    protected function getErrorMessages(Form $form): array
     {
         $errors = array();
 

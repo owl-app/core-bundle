@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 trait RefererPathTrait
 {
-    private function saveRefererPath(SessionInterface $session, string $previousPath)
+    private function saveRefererPath(SessionInterface $session, string $previousPath): void
     {
         $session->set('_previous_path', $previousPath);
     }

@@ -26,6 +26,11 @@ class LocaleAwareListener implements EventSubscriberInterface
         $this->decoratedListener->onKernelFinishRequest($event);
     }
 
+    /**
+     * @return (int|string)[][][]
+     *
+     * @psalm-return array{'kernel.request': list{list{'onKernelRequest', 4}}, 'kernel.finish_request': list{list{'onKernelFinishRequest', -15}}}
+     */
     public static function getSubscribedEvents(): array
     {
         return [

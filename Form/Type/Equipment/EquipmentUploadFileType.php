@@ -8,6 +8,11 @@ use Owl\Bundle\FileBundle\Form\Type\UploadFileType;
 
 final class EquipmentUploadFileType extends UploadFileType
 {
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_equipment_upload_file'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_equipment_upload_file';

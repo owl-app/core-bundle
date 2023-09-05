@@ -105,6 +105,9 @@ abstract class AbstractResourceFixture implements FixtureInterface
         // empty
     }
 
+    /**
+     * @psalm-return list<mixed>
+     */
     private function prepareReferences(array &$options): array
     {
         $references = [];

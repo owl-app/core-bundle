@@ -11,10 +11,3 @@ owl_user:
                     interface: Owl\Component\Core\Model\AdminUserInterface
                     repository: Owl\Bundle\CoreBundle\Doctrine\ORM\AdminUserRepository
                     form: Owl\Bundle\CoreBundle\Form\Type\User\AdminUserType
-        # oauth:
-        #     user:
-        #         hasher: false
-        #         classes:
-        #             model: Owl\Component\User\Model\UserOAuth
-        #             interface: Owl\Component\User\Model\UserOAuthInterface
-        #             controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController

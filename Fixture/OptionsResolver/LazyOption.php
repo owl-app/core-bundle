@@ -36,6 +36,9 @@ use Webmozart\Assert\Assert;
  */
 final class LazyOption
 {
+    /**
+     * @psalm-return \Closure(Options):object
+     */
     public static function randomOne(RepositoryInterface $repository, array $criteria = []): \Closure
     {
         return function (Options $options) use ($repository, $criteria): object {
@@ -51,6 +54,9 @@ final class LazyOption
         };
     }
 
+    /**
+     * @psalm-return \Closure(Options):(null|object)
+     */
     public static function randomOneOrNull(
         RepositoryInterface $repository,
         int $chanceOfRandomOne = 100,
@@ -71,9 +77,17 @@ final class LazyOption
         };
     }
 
+    /**
+     * @psalm-return \Closure(Options):list{0?: \Sylius\Component\Resource\Model\ResourceInterface|mixed,...}
+     */
     public static function randomOnes(RepositoryInterface $repository, int $amount, array $criteria = []): \Closure
     {
-        return function (Options $options) use ($repository, $amount, $criteria): iterable {
+        return /**
+         * @return (\Sylius\Component\Resource\Model\ResourceInterface|mixed)[]
+         *
+         * @psalm-return list{0?: \Sylius\Component\Resource\Model\ResourceInterface|mixed,...}
+         */
+        function (Options $options) use ($repository, $amount, $criteria): array {
             $objects = $repository->findBy($criteria);
 
             if ($objects instanceof Collection) {
@@ -93,16 +107,32 @@ final class LazyOption
         };
     }
 
+    /**
+     * @psalm-return \Closure(Options):array<\Sylius\Component\Resource\Model\ResourceInterface>
+     */
     public static function all(RepositoryInterface $repository): \Closure
     {
-        return function (Options $options) use ($repository): iterable {
+        return /**
+         * @return \Sylius\Component\Resource\Model\ResourceInterface[]
+         *
+         * @psalm-return array<\Sylius\Component\Resource\Model\ResourceInterface>
+         */
+        function (Options $options) use ($repository): array {
             return $repository->findAll();
         };
     }
 
+    /**
+     * @psalm-return \Closure(Options, array|null):(list{0?: null|object,...}|null)
+     */
     public static function findBy(RepositoryInterface $repository, string $field, array $criteria = []): \Closure
     {
-        return function (Options $options, ?array $previousValues) use ($repository, $field, $criteria): ?iterable {
+        return /**
+         * @return (null|object)[]|null
+         *
+         * @psalm-return list{0?: null|object,...}|null
+         */
+        function (Options $options, ?array $previousValues) use ($repository, $field, $criteria): array|null {
             if (null === $previousValues || [] === $previousValues) {
                 return $previousValues;
             }
@@ -120,6 +150,9 @@ final class LazyOption
         };
     }
 
+    /**
+     * @psalm-return \Closure(Options, mixed):(null|object)
+     */
     public static function findOneBy(RepositoryInterface $repository, string $field, array $criteria = []): \Closure
     {
         return
@@ -138,6 +171,9 @@ final class LazyOption
         ;
     }
 
+    /**
+     * @psalm-return \Closure(Options, mixed):(null|object)
+     */
     public static function getOneBy(RepositoryInterface $repository, string $field, array $criteria = []): \Closure
     {
         return

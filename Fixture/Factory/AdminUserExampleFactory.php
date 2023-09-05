@@ -74,7 +74,7 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
             ->setDefault('last_name', function (Options $options): string {
                 return $this->faker->lastName;
             })
-            ->setDefault('phone', function (Options $options): ?string {
+            ->setDefault('phone', function (Options $options): string {
                 return $this->faker->phoneNumber;
             })
             ->setDefault('email', function (Options $options): string {

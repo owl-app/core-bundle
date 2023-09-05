@@ -44,10 +44,10 @@ class CompanyExampleFactory extends AbstractExampleFactory
             ->setDefault('post_code', function (Options $options): string {
                 return $this->faker->postcode;
             })
-            ->setDefault('phone', function (Options $options): ?string {
+            ->setDefault('phone', function (Options $options): string {
                 return $this->faker->phoneNumber;
             })
-            ->setDefault('email', function (Options $options): ?string {
+            ->setDefault('email', function (Options $options): string {
                 return $this->faker->email;
             })
         ;

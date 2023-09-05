@@ -54,6 +54,11 @@ final class AdminUserRegistrationType extends AbstractResourceType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_admin_user_registration'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_admin_user_registration';

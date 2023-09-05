@@ -58,12 +58,18 @@ final class SecurityController
         ]));
     }
 
-    public function checkAction(Request $request): void
+    /**
+     * @return never
+     */
+    public function checkAction(Request $request)
     {
         throw new \RuntimeException('You must configure the check path to be handled by the firewall.');
     }
 
-    public function logoutAction(Request $request): void
+    /**
+     * @return never
+     */
+    public function logoutAction(Request $request)
     {
         throw new \RuntimeException('You must configure the logout path to be handled by the firewall.');
     }

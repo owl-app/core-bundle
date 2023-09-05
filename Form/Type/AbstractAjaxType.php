@@ -36,8 +36,10 @@ final class AbstractAjaxType extends AbstractResourceType
 
     /**
      * @inheritdoc
+     *
+     * @psalm-return FormType::class
      */
-    public function getExtendedType()
+    public function getExtendedType(): string
     {
         return FormType::class;
     }

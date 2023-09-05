@@ -21,6 +21,11 @@ final class RejectRegistrationType extends AbstractResourceType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_reject_registration'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_reject_registration';

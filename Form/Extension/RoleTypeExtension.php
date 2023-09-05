@@ -26,11 +26,19 @@ final class RoleTypeExtension extends AbstractTypeExtension
         ;
     }
 
+    /**
+     * @psalm-return RoleType::class
+     */
     public function getExtendedType(): string
     {
         return RoleType::class;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{RoleType::class}
+     */
     public static function getExtendedTypes(): iterable
     {
         return [RoleType::class];

@@ -12,6 +12,9 @@ use Owl\Component\User\Model\UserAwareInterface;
 
 class AdminUserRepository extends UserRepository implements AdminUserRepositoryInterface
 {
+    /**
+     * @return QueryBuilder
+     */
     public function findByCompany($companyId): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');

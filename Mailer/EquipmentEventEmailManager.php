@@ -33,6 +33,11 @@ final class EquipmentEventEmailManager implements EquipmentEventEmailManagerInte
         );
     }
 
+    /**
+     * @return (mixed|null|string)[]
+     *
+     * @psalm-return list{0: mixed|null|string, 1?: mixed|null|string,...}
+     */
     private function prepareNotifyEmails(EquipmentInterface $equipment): array
     {
         $emails = [$equipment->getUser()->getEmail()];

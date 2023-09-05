@@ -26,16 +26,31 @@ final class GroupNotificationChoiceType extends AbstractType
         ]);
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return ChoiceType::class
+     */
     public function getParent(): string
     {
         return ChoiceType::class;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_group_notification_choice'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_group_notification_choice';
     }
 
+    /**
+     * @return (mixed|string)[]
+     *
+     * @psalm-return array<string, 'ALL'|mixed>
+     */
     private function getOptions(): array
     {
         $groups = ['owl.ui.to_all' => NotificationInterface::GROUP_ASSIGNED_ALL];

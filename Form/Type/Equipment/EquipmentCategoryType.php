@@ -23,6 +23,11 @@ final class EquipmentCategoryType extends CategoryType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'owl_equipment_category'
+     */
     public function getBlockPrefix(): string
     {
         return 'owl_equipment_category';

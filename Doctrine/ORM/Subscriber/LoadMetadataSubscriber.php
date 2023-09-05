@@ -10,6 +10,11 @@ use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 
 final class LoadMetadataSubscriber implements EventSubscriber
 {
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{'loadClassMetadata'}
+     */
     public function getSubscribedEvents(): array
     {
         return [

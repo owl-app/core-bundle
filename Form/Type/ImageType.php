@@ -33,6 +33,11 @@ abstract class ImageType extends AbstractResourceType
         ;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'sylius_image'
+     */
     public function getBlockPrefix(): string
     {
         return 'sylius_image';

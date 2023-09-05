@@ -37,6 +37,9 @@ final class DateFormat extends FunctionNode
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
 
+    /**
+     * @return string
+     */
     public function getSql(SqlWalker $sqlWalker)
     {
         return sprintf('DATE_FORMAT(%s, %s)', $this->date->dispatch($sqlWalker), $this->pattern->dispatch($sqlWalker));

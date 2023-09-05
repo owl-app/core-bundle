@@ -22,6 +22,11 @@ final class RoleBasedSuffixGridProvider implements SuffixGridProviderInterface
         $this->adminUserContext = $adminUserContext;
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return ''|'_role_company'|'_role_user'
+     */
     public function getSuffix(): string
     {
         $roleName = $this->adminUserContext->getRoleCanonicalName();

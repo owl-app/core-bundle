@@ -22,11 +22,19 @@ final class NotificationTypeExtension extends AbstractTypeExtension
         ;
     }
 
+    /**
+     * @psalm-return NotificationType::class
+     */
     public function getExtendedType(): string
     {
         return NotificationType::class;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{NotificationType::class}
+     */
     public static function getExtendedTypes(): iterable
     {
         return [NotificationType::class];

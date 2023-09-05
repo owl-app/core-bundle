@@ -13,6 +13,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class OwlCoreBundle extends AbstractResourceBundle
 {
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{'doctrine/orm'}
+     */
     public function getSupportedDrivers(): array
     {
         return [
@@ -30,6 +35,11 @@ final class OwlCoreBundle extends AbstractResourceBundle
         $container->addCompilerPass(new Symfony6PrivateServicesPass());
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'Owl\Component\Core\Model'
+     */
     protected function getModelNamespace(): string
     {
         return 'Owl\Component\Core\Model';

@@ -13,6 +13,11 @@ use Webmozart\Assert\Assert;
 
 final class AddRoleSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{'form.submit': 'submit'}
+     */
     public static function getSubscribedEvents(): array
     {
         return [

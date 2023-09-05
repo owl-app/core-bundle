@@ -18,6 +18,11 @@ final class AdminUserRegistrationFormSubscriber implements EventSubscriberInterf
     {
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{'form.pre_submit': 'preSubmit'}
+     */
     public static function getSubscribedEvents(): array
     {
         return [

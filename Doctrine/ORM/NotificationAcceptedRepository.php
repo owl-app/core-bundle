@@ -10,6 +10,9 @@ use Owl\Component\Core\Repository\NotificationAcceptedRepositoryInterface;
 
 class NotificationAcceptedRepository extends EntityRepository implements NotificationAcceptedRepositoryInterface
 {
+    /**
+     * @return QueryBuilder
+     */
     public function findByNotification($notificationId): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');

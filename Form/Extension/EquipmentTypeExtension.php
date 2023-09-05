@@ -69,11 +69,19 @@ final class EquipmentTypeExtension extends AbstractTypeExtension
         ]);
     }
 
+    /**
+     * @psalm-return EquipmentType::class
+     */
     public function getExtendedType(): string
     {
         return EquipmentType::class;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{EquipmentType::class}
+     */
     public static function getExtendedTypes(): iterable
     {
         return [EquipmentType::class];

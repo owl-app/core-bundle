@@ -34,6 +34,9 @@ final class Day extends FunctionNode
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
 
+    /**
+     * @return string
+     */
     public function getSql(SqlWalker $sqlWalker): string
     {
         $platformName = $sqlWalker->getConnection()->getDatabasePlatform()->getName();

@@ -22,11 +22,19 @@ final class EquipmentAttributeTypeExtension extends AbstractTypeExtension
         ;
     }
 
+    /**
+     * @psalm-return EquipmentAttributeType::class
+     */
     public function getExtendedType(): string
     {
         return EquipmentAttributeType::class;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{EquipmentAttributeType::class}
+     */
     public static function getExtendedTypes(): iterable
     {
         return [EquipmentAttributeType::class];

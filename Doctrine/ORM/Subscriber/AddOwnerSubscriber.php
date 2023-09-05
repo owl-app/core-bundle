@@ -22,6 +22,11 @@ final class AddOwnerSubscriber implements EventSubscriber
         $this->adminUserContext = $adminUserContext;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{'prePersist'}
+     */
     public function getSubscribedEvents(): array
     {
         return [

@@ -77,16 +77,31 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
         $this->prependSyliusResourceBundle($container, $config);
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'Owl\Bundle\CoreBundle\Migrations'
+     */
     protected function getMigrationsNamespace(): string
     {
         return 'Owl\Bundle\CoreBundle\Migrations';
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return '@OwlCoreBundle/Migrations'
+     */
     protected function getMigrationsDirectory(): string
     {
         return '@OwlCoreBundle/Migrations';
     }
 
+    /**
+     * @return array
+     *
+     * @psalm-return array<never, never>
+     */
     protected function getNamespacesOfMigrationsExecutedBefore(): array
     {
         return [];

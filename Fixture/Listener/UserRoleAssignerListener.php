@@ -34,6 +34,11 @@ final class UserRoleAssignerListener extends AbstractListener implements AfterFi
         }
     }
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'user_role_assigner'
+     */
     public function getName(): string
     {
         return 'user_role_assigner';

@@ -23,6 +23,9 @@ class EquipmentEventReminderCommand extends ContainerAwareCommand
             );
     }
 
+    /**
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln(sprintf(

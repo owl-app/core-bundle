@@ -19,6 +19,11 @@ final class EquipmentFiledsByRoleSubscriber implements EventSubscriberInterface
         $this->adminUserContext = $adminUserContext;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{'form.pre_set_data': 'preSetData'}
+     */
     public static function getSubscribedEvents(): array
     {
         return [
