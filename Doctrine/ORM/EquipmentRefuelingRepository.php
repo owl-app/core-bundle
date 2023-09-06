@@ -7,7 +7,13 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 use Doctrine\ORM\QueryBuilder;
 use Owl\Component\Core\Repository\EquipmentRefuelingRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+use Owl\Component\Core\Model\EquipmentRefuelingInterface;
 
+/**
+ * @template T of EquipmentRefuelingInterface
+ *
+ * @implements EquipmentRefuelingRepositoryInterface<T>
+ */
 class EquipmentRefuelingRepository extends EntityRepository implements EquipmentRefuelingRepositoryInterface
 {
     /**

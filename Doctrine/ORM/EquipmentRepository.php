@@ -5,9 +5,15 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
+use Owl\Component\Core\Model\EquipmentInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\EquipmentRepositoryInterface;
 
+/**
+ * @template T of EquipmentInterface
+ *
+ * @implements EquipmentRepositoryInterface<T>
+ */
 class EquipmentRepository extends EntityRepository implements EquipmentRepositoryInterface
 {
     public function findByNamePartWithPermission(?string $phrase = '', int $limit = 10, QueryBuilder $queryBuilderCreated = null): ?array

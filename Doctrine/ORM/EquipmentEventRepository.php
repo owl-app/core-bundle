@@ -9,6 +9,11 @@ use Owl\Component\Core\Model\EquipmentEventInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\EquipmentEventRepositoryInterface;
 
+/**
+ * @template T of EquipmentEventInterface
+ *
+ * @implements EquipmentEventRepositoryInterface<T>
+ */
 class EquipmentEventRepository extends EntityRepository implements EquipmentEventRepositoryInterface
 {
     /**

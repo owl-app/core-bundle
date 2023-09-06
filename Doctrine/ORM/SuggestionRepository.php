@@ -7,7 +7,13 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\SuggestionRepositoryInterface;
+use Owl\Component\Suggestion\Model\SuggestionInterface;
 
+/**
+ * @template T of SuggestionInterface
+ *
+ * @implements SuggestionRepositoryInterface<T>
+ */
 class SuggestionRepository extends EntityRepository implements SuggestionRepositoryInterface
 {
     public function findByIdWithOwner(array $ids, QueryBuilder $queryBuilder = null): array

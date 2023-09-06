@@ -40,11 +40,23 @@ final class AdminUserContext implements AdminUserContextInterface
     {
         $company = $this->getUser()->getCompany();
 
-        if ($company instanceof CompanyInterface) {
+        if($company instanceof CompanyInterface) {
             return $company;
         }
 
         return null;
+    }
+
+    public function getAccessCompaniesIds(): array
+    {
+        $companies = $this->getUser()->getCompanies();
+        $ids = [];
+
+        foreach($companies as $company) {
+            $ids[] = $company->getId();
+        }
+
+        return $ids;
     }
 
     public function getRoleCanonicalName(): ?string
