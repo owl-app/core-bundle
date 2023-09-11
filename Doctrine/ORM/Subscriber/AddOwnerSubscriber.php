@@ -6,12 +6,10 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM\Subscriber;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Events;
-use Doctrine\ORM\Mapping\Entity;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
 use Owl\Component\User\Model\UserAwareInterface;
-use Webmozart\Assert\Assert;
 
 final class AddOwnerSubscriber implements EventSubscriber
 {
