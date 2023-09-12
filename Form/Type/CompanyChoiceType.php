@@ -22,11 +22,7 @@ final class CompanyChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => /**
-             * @return \Sylius\Component\Resource\Model\ResourceInterface[]
-             *
-             * @psalm-return array<T>
-             */
+            'choices' =>
             function (Options $options): array {
                 return $this->companyRepository->findAll();
             },
@@ -38,21 +34,11 @@ final class CompanyChoiceType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     *
-     * @psalm-return ChoiceType::class
-     */
     public function getParent(): string
     {
         return ChoiceType::class;
     }
 
-    /**
-     * @return string
-     *
-     * @psalm-return 'owl_company_choice'
-     */
     public function getBlockPrefix(): string
     {
         return 'owl_company_choice';

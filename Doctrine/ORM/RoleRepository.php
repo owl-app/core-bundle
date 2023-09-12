@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
+use Owl\Component\Core\Model\Rbac\RoleInterface;
 use Owl\Component\Core\Model\RoleAwareInterface;
+use Owl\Component\Core\Repository\RoleRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
-use Owl\Component\Rbac\Repository\RoleRepositoryInterface;
-use Owl\Component\Rbac\Model\RoleInterface;
 
 /**
  * @template T of RoleInterface

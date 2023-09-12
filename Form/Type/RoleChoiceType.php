@@ -5,18 +5,14 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Form\Type;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
+use Owl\Component\Core\Repository\RoleRepositoryInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class RoleChoiceType extends AbstractType
 {
-    private RepositoryInterface $roleRepository;
-
-    private AdminUserContextInterface $adminUserContext;
-
-    public function __construct(RepositoryInterface $roleRepository, AdminUserContextInterface $adminUserContext)
+    public function __construct(private RoleRepositoryInterface $roleRepository, private AdminUserContextInterface $adminUserContext)
     {
         $this->roleRepository = $roleRepository;
         $this->adminUserContext = $adminUserContext;

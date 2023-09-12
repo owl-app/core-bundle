@@ -60,7 +60,7 @@ class UserController extends BaseUserController
             $configuration->getFormOptions(),
             [
                 'csrf_field_name' => '_csrf_token',
-                'csrf_token_id' => $request->get('name')
+                'csrf_token_id' => $request->request->get('name')
             ]
         );
         $method = $action === 'revoke' ? 'DELETE' : 'POST';

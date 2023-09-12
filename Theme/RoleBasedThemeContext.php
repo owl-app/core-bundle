@@ -37,6 +37,8 @@ final class RoleBasedThemeContext implements ThemeContextInterface
     
                 throw new ThemeNotFoundException();
             }
+
+            return null;
         } catch (\Exception $exception) {
             return null;
         }
