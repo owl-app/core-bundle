@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Fixture;
 
 use Doctrine\Persistence\ObjectManager;
+use Owl\Component\Locale\Model\LocaleInterface;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
-use Sylius\Component\Locale\Model\LocaleInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
@@ -50,9 +50,6 @@ class LocaleFixture extends AbstractFixture
         $this->localeManager->flush();
     }
 
-    /**
-     * @psalm-return 'locale'
-     */
     public function getName(): string
     {
         return 'locale';

@@ -49,7 +49,7 @@ final class AdminUserContext implements AdminUserContextInterface
 
     public function getAccessCompaniesIds(): array
     {
-        $companies = $this->getUser()->getCompanies();
+        $companies = $this->getUser()?->getCompanies();
         $ids = [];
 
         foreach ($companies as $company) {

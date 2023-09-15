@@ -6,7 +6,6 @@ namespace Owl\Bundle\CoreBundle\Controller;
 
 use Owl\Bundle\UiBundle\Form\Type\SecurityLoginType;
 use Owl\Component\Setting\Storage\SettingStorageInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,13 +17,10 @@ use Twig\Environment;
 
 final class SecurityController
 {
-    /**
-     * @param EngineInterface|Environment $templatingEngine
-     */
     public function __construct(
         private AuthenticationUtils $authenticationUtils,
         private FormFactoryInterface $formFactory,
-        private object $templatingEngine,
+        private Environment $templatingEngine,
         private AuthorizationCheckerInterface $authorizationChecker,
         private RouterInterface $router,
         private SettingStorageInterface $settingStorage,

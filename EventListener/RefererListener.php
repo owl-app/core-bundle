@@ -30,7 +30,7 @@ final class RefererListener
         $currentUrl = $request->getRequestUri();
         $token = $this->tokenStorage->getToken();
         $user = $token !== null ? $token->getUser() : null;
-        $hasReferer = $request->get('_sylius')['vars']['referer'] ?? false;
+        $hasReferer = $request->attributes->get('_sylius')['vars']['referer'] ?? false;
 
         if (null !== $token && $user instanceof AdminUserInterface && $request->isMethodSafe() && !$request->isXmlHttpRequest()) {
             if ($hasReferer) {

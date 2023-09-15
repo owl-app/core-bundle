@@ -22,12 +22,7 @@ final class EquipmentCategoryChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => /**
-             * @return \Sylius\Component\Resource\Model\ResourceInterface[]
-             *
-             * @psalm-return array<T>
-             */
-            function (Options $options): array {
+            'choices' => function (Options $options): array {
                 return $this->equipmentCategoryRepository->findAll();
             },
             'choice_value' => 'id',

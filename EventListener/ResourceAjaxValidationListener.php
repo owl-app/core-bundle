@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\EventListener;
 
-use Symfony\Component\EventDispatcher\GenericEvent;
+use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +13,7 @@ use Webmozart\Assert\Assert;
 
 final class ResourceAjaxValidationListener
 {
-    public function validate(GenericEvent $event): void
+    public function validate(ResourceControllerEvent $event): void
     {
         $form = $event->getSubject();
 
@@ -35,6 +36,7 @@ final class ResourceAjaxValidationListener
     {
         $errors = [];
 
+        /** @var FormError $error */
         foreach ($form->getErrors() as $key => $error) {
             $errors[] = $error->getMessage();
         }

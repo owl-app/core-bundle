@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Owl\Bridge\SyliusResource\Doctrine\Orm\CollectionProviderInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class UserChoiceType extends AbstractType
 {
     public function __construct(
-        private RepositoryInterface $userRepository,
+        private EntityRepository $userRepository,
         private CollectionProviderInterface $collectionProvider,
     ) {
     }

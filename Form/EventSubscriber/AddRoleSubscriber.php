@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\EventSubscriber;
 
+use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\Rbac\RoleInterface;
 use Owl\Component\Core\Model\RoleAwareInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -27,10 +28,10 @@ final class AddRoleSubscriber implements EventSubscriberInterface
 
     public function submit(FormEvent $event): void
     {
+        /** @var AdminUserInterface $data */
         $data = $event->getData();
         $form = $event->getForm();
 
-        /** @var AdminUserInterface $data */
         Assert::isInstanceOf($data, RoleAwareInterface::class);
 
         $roles = $data->getRoles();

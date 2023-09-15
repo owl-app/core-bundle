@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Controller\Action;
 
 use Owl\Bridge\SyliusResource\Controller\AbstractResourceAction;
+use Owl\Bridge\SyliusResource\Controller\RequestConfiguration;
 use Owl\Bridge\SyliusResource\Exception\InvalidResponseException;
 use Owl\Component\Core\Factory\Document\DocumentFactoryInterface;
 use Owl\Component\Core\Factory\Document\Params\ExcelDocumentParams;
@@ -40,6 +41,7 @@ final class GenreateLocationsExcelAction extends AbstractResourceAction
 
     public function __invoke(Request $request): Response
     {
+        /** @var RequestConfiguration $configuration */
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
         $this->isGrantedOr403($configuration);

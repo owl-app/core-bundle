@@ -13,6 +13,8 @@ use Owl\Component\Core\Repository\AdminUserRepositoryInterface;
 /**
  * @template T of AdminUserInterface
  *
+ * @extends UserRepository<T>
+ *
  * @implements AdminUserRepositoryInterface<T>
  */
 class AdminUserRepository extends UserRepository implements AdminUserRepositoryInterface
