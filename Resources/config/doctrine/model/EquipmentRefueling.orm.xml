@@ -19,7 +19,7 @@
             <gedmo:timestampable on="create"/>
         </field>
 
-        <many-to-one field="equipment" target-entity="Owl\Component\Core\Model\EquipmentInterface">
+        <many-to-one field="equipment" target-entity="Owl\Component\Core\Model\EquipmentInterface" inversed-by="refuelings">
             <join-column name="equipment_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
         </many-to-one>
 

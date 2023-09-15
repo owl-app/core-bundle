@@ -11,7 +11,6 @@
         <one-to-many
             field="equipments"
             target-entity="Owl\Component\Core\Model\EquipmentInterface"
-            mapped-by="category"
             orphan-removal="false"
         >
             <cascade>
