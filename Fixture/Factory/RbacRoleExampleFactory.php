@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Fixture\Factory;
 
 use Doctrine\Common\DataFixtures\ReferenceRepository;
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Owl\Component\Core\Model\Rbac\RoleInterface;
 use Owl\Component\Core\Model\Rbac\RoleSetting;
 use Owl\Component\Rbac\Provider\RoutesPermissionProviderInterface;
+use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Sylius\Component\Resource\Factory\FactoryInterface;
 
 class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
@@ -23,7 +23,7 @@ class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFa
     public function __construct(
         private FactoryInterface $rbacRoleFactory,
         private ReferenceRepository $permissionReference,
-        private RoutesPermissionProviderInterface $routesPermissionProvider
+        private RoutesPermissionProviderInterface $routesPermissionProvider,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -48,7 +48,7 @@ class RbacRoleExampleFactory extends AbstractExampleFactory implements ExampleFa
             $rbacRole->setSetting($shopBillingData);
         }
 
-        if($options['all_permissions']) {
+        if ($options['all_permissions']) {
             $this->assignAllPermissions($rbacRole);
         }
 

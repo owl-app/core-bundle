@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type\User;
 
-use Owl\Bundle\CoreBundle\Form\EventSubscriber\AdminUserRegistrationFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,7 +18,7 @@ final class AdminUserRegistrationType extends AbstractResourceType
     public function __construct(
         string $dataClass,
         array $validationGroups = [],
-        private EventSubscriberInterface $adminUserRegistrationFormsubscriber
+        private EventSubscriberInterface $adminUserRegistrationFormsubscriber,
     ) {
         parent::__construct($dataClass, $validationGroups);
     }
@@ -51,12 +50,9 @@ final class AdminUserRegistrationType extends AbstractResourceType
             ])
             ->addEventSubscriber($this->adminUserRegistrationFormsubscriber)
             ->setDataLocked(false);
-        ;
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_admin_user_registration'
      */
     public function getBlockPrefix(): string

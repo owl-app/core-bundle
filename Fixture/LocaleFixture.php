@@ -51,8 +51,6 @@ class LocaleFixture extends AbstractFixture
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'locale'
      */
     public function getName(): string

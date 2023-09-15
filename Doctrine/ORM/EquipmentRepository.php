@@ -6,8 +6,8 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Component\Core\Model\EquipmentInterface;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\EquipmentRepositoryInterface;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
  * @template T of EquipmentInterface

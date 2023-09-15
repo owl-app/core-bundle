@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 class RbacRoleFixture extends AbstractResourceFixture
 {
     /**
-     * @return string
-     *
      * @psalm-return 'rbac_role'
      */
     public function getName(): string

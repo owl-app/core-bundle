@@ -54,7 +54,7 @@ final class SecurityController
             'form' => $form->createView(),
             'last_username' => $lastUsername,
             'last_error' => $lastError,
-            'settings' => $settings
+            'settings' => $settings,
         ]));
     }
 

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\DependencyInjection\Compiler;
 
+use Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\DateFilterType;
+use Sylius\Bundle\GridBundle\Form\Type\Filter\DateFilterType as DateTimeFilterType;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
-use Owl\Bundle\CoreBundle\Form\Type\Grid\Filter\DateFilterType;
-use Sylius\Bundle\GridBundle\Form\Type\Filter\DateFilterType as DateTimeFilterType;
 
 final class RegisterGridDateFilterPass implements CompilerPassInterface
 {

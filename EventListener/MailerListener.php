@@ -8,15 +8,15 @@ use Owl\Bundle\CoreBundle\Mailer\Emails as CoreBundleEmails;
 use Owl\Bundle\UserBundle\Mailer\Emails as UserBundleEmails;
 use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\AdminUserRegistrationDataInterface;
-use Sylius\Component\Mailer\Sender\SenderInterface;
 use Owl\Component\User\Model\UserInterface;
+use Sylius\Component\Mailer\Sender\SenderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Webmozart\Assert\Assert;
 
 final class MailerListener
 {
     public function __construct(
-        private SenderInterface $emailSender
+        private SenderInterface $emailSender,
     ) {
     }
 
@@ -65,8 +65,8 @@ final class MailerListener
             $emailCode,
             [$user->getEmail()],
             [
-                'user' => $user
-            ]
+                'user' => $user,
+            ],
         );
     }
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Owl\Component\Core\Model\CompanyInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -18,7 +18,7 @@ class CompanyExampleFactory extends AbstractExampleFactory
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        private FactoryInterface $companyFactory
+        private FactoryInterface $companyFactory,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

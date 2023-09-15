@@ -23,7 +23,7 @@ final class RegisterListenerOwnerableCompanyPass implements CompilerPassInterfac
         foreach ($resourceRegistry->getAll() as $alias => $resource) {
             if (\is_subclass_of($resource->getParameters()['classes']['model'], OwnerableCompanyInterface::class)) {
                 $definitionListener->addTag('kernel.event_listener', [
-                    'event' => $alias.'.pre_create',
+                    'event' => $alias . '.pre_create',
                     'method' => 'addCompany',
                 ]);
             }

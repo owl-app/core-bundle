@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Doctrine\ORM\Subscriber;
 
 use Doctrine\Common\EventSubscriber;
-use Owl\Component\Core\Model\Rbac\Role;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
+use Owl\Component\Core\Model\Rbac\Role;
 
 final class LoadMetadataSubscriber implements EventSubscriber
 {

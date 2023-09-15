@@ -36,7 +36,7 @@ final class ResourceUpdateHandler implements ResourceUpdateHandlerInterface
     public function handle(
         ResourceInterface $resource,
         RequestConfiguration $requestConfiguration,
-        ObjectManager $manager
+        ObjectManager $manager,
     ): void {
         try {
             $this->decoratedHandler->handle($resource, $requestConfiguration, $manager);

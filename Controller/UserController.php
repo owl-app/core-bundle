@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Controller;
 
 use Exception;
-use Owl\Bridge\SyliusResource\Controller\BaseController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Owl\Bundle\RbacBundle\Factory\PermissionFormFactoryInterface;
 use Owl\Bundle\RbacManagerBundle\Factory\ItemFactoryInterface;
 use Owl\Bundle\RbacManagerBundle\Manager\ManagerInterface;
 use Owl\Bundle\UserBundle\Controller\UserController as BaseUserController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends BaseUserController
 {
@@ -29,14 +28,14 @@ class UserController extends BaseUserController
             $configuration,
             array_keys(array_merge($permissionsDirect, $permissionsInherited, $userRoles)),
             array_diff(array_keys($permissionsInherited), array_keys($permissionsDirect)),
-            true
+            true,
         );
 
         return $this->render($configuration->getTemplate('index.html'), [
             'configuration' => $configuration,
             'metadata' => $this->metadata,
             'user' => $resource,
-            'forms' => $forms
+            'forms' => $forms,
         ]);
     }
 
@@ -60,8 +59,8 @@ class UserController extends BaseUserController
             $configuration->getFormOptions(),
             [
                 'csrf_field_name' => '_csrf_token',
-                'csrf_token_id' => $request->request->get('name')
-            ]
+                'csrf_token_id' => $request->request->get('name'),
+            ],
         );
         $method = $action === 'revoke' ? 'DELETE' : 'POST';
 
@@ -86,25 +85,27 @@ class UserController extends BaseUserController
                         'message' => $this->get('translator')->trans('owl.rbac.permission.add_success', [], 'flashes'),
                         'permissions' => [
                             'direct' => array_keys(array_merge($permissionsDirect, $userRoles)),
-                            'inherited' => array_keys($permissionsInherited)
-                        ]
+                            'inherited' => array_keys($permissionsInherited),
+                        ],
                     ];
 
                     return $this->createRestView($configuration, $responseData, Response::HTTP_OK);
                 }
             } catch(Exception $e) {
                 $responseData = [
-                    'message' => $e->getMessage()
+                    'message' => $e->getMessage(),
                 ];
+
                 return $this->createRestView($configuration, $responseData, Response::HTTP_BAD_REQUEST);
             }
         } else {
             $responseData = [
                 'message' => [
                     'status' => 'error',
-                    'errors' => $this->getErrorMessages($form)
-                ]
+                    'errors' => $this->getErrorMessages($form),
+                ],
             ];
+
             return $this->createRestView($configuration, $responseData, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
     }

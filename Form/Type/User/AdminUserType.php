@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type\User;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Owl\Bundle\CoreBundle\Form\EventSubscriber\AddRoleSubscriber;
-use Owl\Bundle\CoreBundle\Form\Type\CompanyChoiceType;
+use Owl\Bundle\CoreBundle\Form\Type\RoleChoiceType;
 use Owl\Bundle\UserBundle\Form\Type\UserType;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\LocaleType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Owl\Bundle\CoreBundle\Form\Type\RoleChoiceType;
-use Owl\Bundle\MailboxBundle\Form\Type\MailboxChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 final class AdminUserType extends UserType
 {
@@ -25,7 +23,7 @@ final class AdminUserType extends UserType
         string $dataClass,
         array $validationGroups = [],
         ?string $fallbackLocale = null,
-        EventSubscriberInterface $addOwnerFormSubscriber
+        EventSubscriberInterface $addOwnerFormSubscriber,
     ) {
         parent::__construct($dataClass, $validationGroups);
 
@@ -69,8 +67,6 @@ final class AdminUserType extends UserType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'sylius_admin_user'
      */
     public function getBlockPrefix(): string
@@ -79,7 +75,7 @@ final class AdminUserType extends UserType
     }
 
     /**
-     * @return (null|string|string[])[]
+     * @return (string|string[]|null)[]
      *
      * @psalm-return array{label: 'owl.ui.locale', placeholder: null, preferred_choices?: list{string}}
      */

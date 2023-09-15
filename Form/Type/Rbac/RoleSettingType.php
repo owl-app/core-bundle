@@ -18,7 +18,7 @@ final class RoleSettingType extends AbstractResourceType
             ->add('canonicalName', TextType::class, [
                 'label' => 'owl.form.role.canonical_name',
                 'empty_data' => null,
-                'disabled' => $options['disabled_name']
+                'disabled' => $options['disabled_name'],
             ])
             ->add('theme', ThemeNameChoiceType::class, [
                 'label' => 'owl.form.role.choice_theme',
@@ -40,8 +40,6 @@ final class RoleSettingType extends AbstractResourceType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_rbac_role_setting'
      */
     public function getBlockPrefix(): string

@@ -24,7 +24,6 @@ final class AdminUserAcceptRegistrationType extends AbstractResourceType
                 'label' => 'owl.form.user.role',
             ])
             ->addEventSubscriber(new AddRoleSubscriber());
-        ;
     }
 
     public function getBlockPrefix(): string

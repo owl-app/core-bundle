@@ -16,15 +16,13 @@ final class EquipmentAddOnChoiceType extends AbstractType
         $resolver->setDefaults([
             'choices' => [
                 EquipmentAddOnInterface::ADDON_REFUELING_NAME => EquipmentAddOnInterface::ADDON_REFUELING_CODE,
-                EquipmentAddOnInterface::ADDON_EVENT_NAME => EquipmentAddOnInterface::ADDON_EVENT_CODE
+                EquipmentAddOnInterface::ADDON_EVENT_NAME => EquipmentAddOnInterface::ADDON_EVENT_CODE,
             ],
             'choice_translation_domain' => true,
         ]);
     }
 
     /**
-     * @return string
-     *
      * @psalm-return ChoiceType::class
      */
     public function getParent(): string
@@ -33,8 +31,6 @@ final class EquipmentAddOnChoiceType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_equipment_addon_choice'
      */
     public function getBlockPrefix(): string

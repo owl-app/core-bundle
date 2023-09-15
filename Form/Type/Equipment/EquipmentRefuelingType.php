@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type\Equipment;
 
+use Sylius\Bundle\MoneyBundle\Form\Type\MoneyType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Sylius\Bundle\MoneyBundle\Form\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class EquipmentRefuelingType extends AbstractResourceType
@@ -34,7 +33,7 @@ class EquipmentRefuelingType extends AbstractResourceType
             ->add('value', MoneyType::class, [
                 'required' => false,
                 'label' => 'owl.form.equipment_refueling.value',
-                'currency' => $options['currency'] ?? null
+                'currency' => $options['currency'] ?? null,
             ])
             ->add('comment', TextareaType::class, [
                 'label' => 'owl.form.common.description',
@@ -45,8 +44,6 @@ class EquipmentRefuelingType extends AbstractResourceType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_equipment_event'
      */
     public function getBlockPrefix(): string

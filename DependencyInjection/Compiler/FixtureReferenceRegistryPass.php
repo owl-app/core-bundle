@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\DependencyInjection\Compiler;
 
+use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Sylius\Bundle\FixturesBundle\DependencyInjection\Compiler\FixtureRegistryPass;
+use Sylius\Component\Resource\Metadata\MetadataInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
-use Doctrine\Common\DataFixtures\ReferenceRepository;
-use Sylius\Component\Resource\Metadata\MetadataInterface;
 
 final class FixtureReferenceRegistryPass implements CompilerPassInterface
 {
@@ -36,7 +36,7 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
                     }
                 }
 
-                if (!is_null($referenceResource)) {
+                if (null !== $referenceResource) {
                     $definitionFixture = $container->findDefinition($id);
                     $metadata = $resourceRegistry->get($referenceResource);
                     $referenceSerivceName = $this->getReferenceServiceName($metadata);
@@ -52,7 +52,7 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
         }
     }
 
-    protected function getReferenceDefinition(MetadataInterface $metadata): Definition
+    private function getReferenceDefinition(MetadataInterface $metadata): Definition
     {
         $definition = new Definition(ReferenceRepository::class);
         $definition
@@ -64,6 +64,6 @@ final class FixtureReferenceRegistryPass implements CompilerPassInterface
 
     private function getReferenceServiceName(MetadataInterface $metadata): string
     {
-        return $metadata->getApplicationName().'.fixture.reference.'.$metadata->getName();
+        return $metadata->getApplicationName() . '.fixture.reference.' . $metadata->getName();
     }
 }

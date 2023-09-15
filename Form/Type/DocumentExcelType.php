@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type;
 
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class DocumentExcelType extends AbstractType
 {
@@ -22,7 +19,7 @@ final class DocumentExcelType extends AbstractType
                     'owl.ui.new_version_excel' => 'xlsx',
                 ],
                 'label' => 'owl.ui.please_chose_your_version_excel',
-                'empty_data' => null
+                'empty_data' => null,
             ])
         ;
     }

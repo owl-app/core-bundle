@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Fixture;
 
+use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Doctrine\Persistence\ObjectManager;
 use Owl\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
@@ -11,7 +12,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Doctrine\Common\DataFixtures\ReferenceRepository;
 
 abstract class AbstractResourceFixture implements FixtureInterface
 {
@@ -20,7 +20,7 @@ abstract class AbstractResourceFixture implements FixtureInterface
     public function __construct(
         private ObjectManager $objectManager,
         private ExampleFactoryInterface $exampleFactory,
-        private ?ReferenceRepository $referenceRepository = null
+        private ?ReferenceRepository $referenceRepository = null,
     ) {
         $this->objectManager = $objectManager;
         $this->exampleFactory = $exampleFactory;

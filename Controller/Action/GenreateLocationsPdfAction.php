@@ -25,7 +25,7 @@ final class GenreateLocationsPdfAction extends AbstractResourceAction
     public function __construct(
         RequestConfigurationFactoryInterface $requestConfigurationFactory,
         ResourcesCollectionProviderInterface $resourcesFinder,
-        DocumentFactoryInterface $pdfFactory
+        DocumentFactoryInterface $pdfFactory,
     ) {
         $this->requestConfigurationFactory = $requestConfigurationFactory;
         $this->resourcesCollectionProvider = $resourcesFinder;

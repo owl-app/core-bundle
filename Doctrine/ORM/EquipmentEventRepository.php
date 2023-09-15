@@ -6,8 +6,8 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Component\Core\Model\EquipmentEventInterface;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\EquipmentEventRepositoryInterface;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
  * @template T of EquipmentEventInterface
@@ -16,9 +16,6 @@ use Owl\Component\Core\Repository\EquipmentEventRepositoryInterface;
  */
 class EquipmentEventRepository extends EntityRepository implements EquipmentEventRepositoryInterface
 {
-    /**
-     * @return QueryBuilder
-     */
     public function findForEquipment(string $equipmentId): QueryBuilder
     {
         return $this->createQueryBuilder('o')

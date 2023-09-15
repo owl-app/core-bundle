@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Theme;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
-use Owl\Component\Core\Model\AdminUserInterface;
 use Sylius\Bundle\ThemeBundle\Context\ThemeContextInterface;
 use Sylius\Bundle\ThemeBundle\Model\ThemeInterface;
 use Sylius\Bundle\ThemeBundle\Repository\ThemeRepositoryInterface;
-use Sylius\Component\Channel\Context\ChannelNotFoundException;
-use Sylius\Component\Core\Model\ChannelInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 final class RoleBasedThemeContext implements ThemeContextInterface
 {
@@ -28,13 +24,13 @@ final class RoleBasedThemeContext implements ThemeContextInterface
     public function getTheme(): ?ThemeInterface
     {
         try {
-            if($this->adminUserContext->getUser()) {
+            if ($this->adminUserContext->getUser()) {
                 $themeName = $this->adminUserContext->getTheme();
 
                 if ($themeName) {
                     return $this->themeRepository->findOneByName($themeName);
                 }
-    
+
                 throw new ThemeNotFoundException();
             }
 

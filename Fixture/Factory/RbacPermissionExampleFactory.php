@@ -10,7 +10,7 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 class RbacPermissionExampleFactory implements ExampleFactoryInterface
 {
     public function __construct(
-        private FactoryInterface $rbacPermissionFactory
+        private FactoryInterface $rbacPermissionFactory,
     ) {
     }
 

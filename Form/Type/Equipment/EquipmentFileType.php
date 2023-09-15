@@ -9,8 +9,6 @@ use Owl\Bundle\FileBundle\Form\Type\FileType;
 final class EquipmentFileType extends FileType
 {
     /**
-     * @return string
-     *
      * @psalm-return 'owl_equipment_file'
      */
     public function getBlockPrefix(): string

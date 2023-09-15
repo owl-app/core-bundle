@@ -34,8 +34,6 @@ final class EntitiesFilterType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return EntityType::class
      */
     public function getParent(): string
@@ -44,8 +42,6 @@ final class EntitiesFilterType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'sylius_grid_filter_entities'
      */
     public function getBlockPrefix(): string

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Form\Extension;
 
 use Owl\Bundle\CoreBundle\Form\Type\GroupNotificationChoiceType;
+use Owl\Bundle\NotificationBundle\Form\Type\NotificationType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use Owl\Bundle\NotificationBundle\Form\Type\NotificationType;
 
 final class NotificationTypeExtension extends AbstractTypeExtension
 {

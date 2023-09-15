@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Fixture;
 
 use Doctrine\Common\DataFixtures\ReferenceRepository;
-use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Doctrine\Persistence\ObjectManager;
 use Owl\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Owl\Component\Rbac\Provider\RoutesPermissionProviderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class RbacPermissionFixture implements FixtureInterface
@@ -19,15 +17,13 @@ class RbacPermissionFixture implements FixtureInterface
         private ObjectManager $objectManager,
         private ExampleFactoryInterface $exampleFactory,
         private RoutesPermissionProviderInterface $routesPermissionProvider,
-        private ?ReferenceRepository $referenceRepository = null
+        private ?ReferenceRepository $referenceRepository = null,
     ) {
         $this->objectManager = $objectManager;
         $this->exampleFactory = $exampleFactory;
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'rbac_permission'
      */
     public function getName(): string
@@ -41,14 +37,14 @@ class RbacPermissionFixture implements FixtureInterface
         $resourceReferences = [];
         $i = 0;
 
-        foreach($routes as $name => $route) {
+        foreach ($routes as $name => $route) {
             $route['name'] = $name;
             $resource = $this->exampleFactory->create($route);
 
             $this->objectManager->persist($resource);
 
             ++$i;
-    
+
             if (0 === ($i % 10)) {
                 $this->objectManager->flush();
             }

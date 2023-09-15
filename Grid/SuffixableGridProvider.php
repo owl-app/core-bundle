@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Grid;
 
 use Owl\Component\Core\Provider\SuffixGridProviderInterface;
-use Sylius\Component\Grid\Definition\ArrayToDefinitionConverterInterface;
 use Sylius\Component\Grid\Definition\Grid;
-use Sylius\Component\Grid\Exception\UndefinedGridException;
 use Sylius\Component\Grid\Provider\GridProviderInterface;
 
 final class SuffixableGridProvider implements GridProviderInterface
@@ -31,7 +29,7 @@ final class SuffixableGridProvider implements GridProviderInterface
     public function __construct(
         GridProviderInterface $decoratedGridProvider,
         SuffixGridProviderInterface $suffixGridProvider,
-        $gridConfigurations
+        $gridConfigurations,
     ) {
         $this->decoratedGridProvider = $decoratedGridProvider;
         $this->suffixGridProvider = $suffixGridProvider;
@@ -40,7 +38,7 @@ final class SuffixableGridProvider implements GridProviderInterface
 
     public function get(string $code): Grid
     {
-        $suffixedCode = $code.$this->suffixGridProvider->getSuffix();
+        $suffixedCode = $code . $this->suffixGridProvider->getSuffix();
 
         if (array_key_exists($suffixedCode, $this->gridConfigurations)) {
             $code = $suffixedCode;

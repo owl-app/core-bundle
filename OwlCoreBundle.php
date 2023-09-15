@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Owl\Bundle\CoreBundle;
 
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\BackwardsCompatibility\Symfony6PrivateServicesPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\FixtureReferenceRegistryPass;
-use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterListenerOwnerableCompanyPass;
 use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterGridDateFilterPass;
+use Owl\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterListenerOwnerableCompanyPass;
 use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
@@ -36,8 +38,6 @@ final class OwlCoreBundle extends AbstractResourceBundle
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'Owl\Component\Core\Model'
      */
     protected function getModelNamespace(): string

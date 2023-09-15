@@ -39,8 +39,6 @@ final class DateFilterType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_grid_filter_date'
      */
     public function getBlockPrefix(): string

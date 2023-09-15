@@ -26,8 +26,6 @@ final class GroupNotificationChoiceType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return ChoiceType::class
      */
     public function getParent(): string
@@ -36,8 +34,6 @@ final class GroupNotificationChoiceType extends AbstractType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_group_notification_choice'
      */
     public function getBlockPrefix(): string
@@ -58,7 +54,7 @@ final class GroupNotificationChoiceType extends AbstractType
         if ($roles) {
             foreach ($roles as $role) {
                 $name = $role->getSetting()->getCanonicalName();
-                $groups['owl.ui.notification_group_assigned_'.strtolower($name)] = $name;
+                $groups['owl.ui.notification_group_assigned_' . strtolower($name)] = $name;
             }
         }
 

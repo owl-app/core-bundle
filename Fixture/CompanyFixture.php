@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 class CompanyFixture extends AbstractResourceFixture
 {
     /**
-     * @return string
-     *
      * @psalm-return 'company'
      */
     public function getName(): string

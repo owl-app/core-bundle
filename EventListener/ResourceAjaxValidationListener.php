@@ -23,17 +23,17 @@ final class ResourceAjaxValidationListener
         $event->setResponse(
             new JsonResponse([
                 'status' => 'error',
-                'errors' => $this->getErrorMessages($form)
-            ], Response::HTTP_UNPROCESSABLE_ENTITY)
+                'errors' => $this->getErrorMessages($form),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY),
         );
     }
 
     /**
      * @psalm-return array<int<0, max>|string, mixed>
      */
-    protected function getErrorMessages(FormInterface $form): array
+    private function getErrorMessages(FormInterface $form): array
     {
-        $errors = array();
+        $errors = [];
 
         foreach ($form->getErrors() as $key => $error) {
             $errors[] = $error->getMessage();

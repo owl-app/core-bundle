@@ -16,7 +16,7 @@ final class UserRoleAssignerListener extends AbstractListener implements AfterFi
 {
     public function __construct(
         private SingleRoleUpdaterInterface $singleRoleUpdater,
-        private AdminUserRepositoryInterface $adminUserRepository
+        private AdminUserRepositoryInterface $adminUserRepository,
     ) {
     }
 
@@ -35,8 +35,6 @@ final class UserRoleAssignerListener extends AbstractListener implements AfterFi
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'user_role_assigner'
      */
     public function getName(): string

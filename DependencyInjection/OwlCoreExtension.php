@@ -18,7 +18,6 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Reference;
 
 final class OwlCoreExtension extends AbstractResourceExtension implements PrependExtensionInterface
 {
@@ -78,8 +77,6 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'Owl\Bundle\CoreBundle\Migrations'
      */
     protected function getMigrationsNamespace(): string
@@ -88,8 +85,6 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
     }
 
     /**
-     * @return string
-     *
      * @psalm-return '@OwlCoreBundle/Migrations'
      */
     protected function getMigrationsDirectory(): string
@@ -98,8 +93,6 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
     }
 
     /**
-     * @return array
-     *
      * @psalm-return array<never, never>
      */
     protected function getNamespacesOfMigrationsExecutedBefore(): array
@@ -121,7 +114,7 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
     private function prependSyliusResourceBundle(ContainerBuilder $container, array $config): void
     {
         $container->prependExtensionConfig('sylius_resource', [
-            'authorization_checker' => $config['authorization_checker']
+            'authorization_checker' => $config['authorization_checker'],
         ]);
     }
 
@@ -160,7 +153,7 @@ final class OwlCoreExtension extends AbstractResourceExtension implements Prepen
                     'owl-core-rbac' => [
                         'namespace_prefix' => 'Owl\Component\Rbac',
                         'path' => '@OwlCoreBundle/Resources/config/serializer/rbac',
-                    ]
+                    ],
                 ],
             ],
             'property_naming' => [

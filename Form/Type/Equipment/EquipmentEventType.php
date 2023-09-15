@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Webmozart\Assert\Assert;
 
 class EquipmentEventType extends AbstractResourceType
 {
@@ -47,8 +46,6 @@ class EquipmentEventType extends AbstractResourceType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_equipment_event'
      */
     public function getBlockPrefix(): string

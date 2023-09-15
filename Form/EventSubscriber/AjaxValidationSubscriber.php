@@ -13,14 +13,10 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\EventSubscriber;
 
-use Sylius\Bundle\ProductBundle\Form\Type\ProductVariantType;
-use Sylius\Component\Product\Model\ProductInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Validator\Constraints\Valid;
-use Webmozart\Assert\Assert;
-use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 final class AjaxValidationSubscriber implements EventSubscriberInterface
@@ -33,7 +29,7 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            FormEvents::POST_SUBMIT => 'submit'
+            FormEvents::POST_SUBMIT => 'submit',
         ];
     }
 
@@ -47,9 +43,10 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
 
         if (!$form->isValid()) {
             $event->stopPropagation();
+
             return new JsonResponse([
                 'status' => 'Error',
-                'message' => 'Error'
+                'message' => 'Error',
             ], 422);
         }
     }
@@ -57,9 +54,9 @@ final class AjaxValidationSubscriber implements EventSubscriberInterface
     /**
      * @psalm-return array<int<0, max>|string, mixed>
      */
-    protected function getErrorMessages(Form $form): array
+    private function getErrorMessages(Form $form): array
     {
-        $errors = array();
+        $errors = [];
 
         foreach ($form->getErrors() as $key => $error) {
             $errors[] = $error->getMessage();

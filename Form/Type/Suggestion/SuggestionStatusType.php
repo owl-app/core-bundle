@@ -9,8 +9,6 @@ use Owl\Bundle\StatusBundle\Form\Type\StatusType;
 final class SuggestionStatusType extends StatusType
 {
     /**
-     * @return string
-     *
      * @psalm-return 'owl_suggestion_status'
      */
     public function getBlockPrefix(): string

@@ -21,7 +21,7 @@ final class RoleTypeExtension extends AbstractTypeExtension
             ->add('setting', RoleSettingType::class, [
                 'label' => false,
                 'required' => true,
-                'disabled_name' => $data->getId() !== null ? true : false
+                'disabled_name' => $data->getId() !== null ? true : false,
             ])
         ;
     }

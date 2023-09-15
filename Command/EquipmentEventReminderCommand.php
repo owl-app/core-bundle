@@ -19,17 +19,14 @@ class EquipmentEventReminderCommand extends ContainerAwareCommand
     {
         $this
             ->setDescription(
-                'Equipment event reminder'
+                'Equipment event reminder',
             );
     }
 
-    /**
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln(sprintf(
-            'Command will send email to owner and admin company with data to equipment event '
+            'Command will send email to owner and admin company with data to equipment event ',
         ));
 
         $equipmentEventReminder = $this->getContainer()->get('owl.equipment_event_reminder');

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
-use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Query\Expr;
+use Doctrine\ORM\QueryBuilder;
 use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\NotificationInterface;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\NotificationRepositoryInterface;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
  * @template T of NotificationInterface
@@ -25,7 +25,7 @@ class NotificationRepository extends EntityRepository implements NotificationRep
         return $qb
             ->where($qb->expr()->orX(
                 $qb->expr()->eq('o.assignedGroup', ':assignedGroupAll'),
-                $qb->expr()->eq('o.assignedGroup', ':assignedGroup')
+                $qb->expr()->eq('o.assignedGroup', ':assignedGroup'),
             ))
             ->andWhere('o.user != :user')
             ->leftJoin('o.acceptedNotifications', 'an', Expr\Join::WITH, 'an.user = :user')
@@ -55,7 +55,7 @@ class NotificationRepository extends EntityRepository implements NotificationRep
         return $qb
             ->andWhere($qb->expr()->andX(
                 $qb->expr()->lte('o.currentFrom', ':dateFrom'),
-                $qb->expr()->gte('o.currentTo', ':dateTo')
+                $qb->expr()->gte('o.currentTo', ':dateTo'),
             ))
             ->setParameter('dateFrom', date('Y-m-d'))
             ->setParameter('dateTo', date('Y-m-d'))

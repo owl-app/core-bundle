@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Extension;
 
-use Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentEventType;
-use Owl\Bundle\CoreBundle\Form\Type\Equipment\EquipmentRefuelingType;
 use Owl\Bundle\CoreBundle\Form\Type\EquipmentCategoryChoiceType;
 use Owl\Bundle\EquipmentBundle\Form\Type\EquipmentAttributeValueType;
 use Owl\Bundle\EquipmentBundle\Form\Type\EquipmentType;
-use Owl\Component\Core\Model\EquipmentCategoryInterface;
 use Owl\Component\Core\Resolver\RoleBasedValidationGroupResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
@@ -24,7 +21,7 @@ final class EquipmentTypeExtension extends AbstractTypeExtension
     public function __construct(
         private EventSubscriberInterface $addOwnerFormSubscriber,
         private EventSubscriberInterface $equipmentFieldsByRole,
-        private RoleBasedValidationGroupResolverInterface $validationGroupsResolver
+        private RoleBasedValidationGroupResolverInterface $validationGroupsResolver,
     ) {
     }
 
@@ -46,8 +43,8 @@ final class EquipmentTypeExtension extends AbstractTypeExtension
                 'entry_type' => EquipmentAttributeValueType::class,
                 'entry_options' => [
                     'attribute_choice_type_options' => [
-                        'category' => $data['category']
-                    ]
+                        'category' => $data['category'],
+                    ],
                 ],
                 'required' => false,
                 'prototype' => true,
@@ -65,7 +62,7 @@ final class EquipmentTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'validation_groups' => $this->validationGroupsResolver
+            'validation_groups' => $this->validationGroupsResolver,
         ]);
     }
 

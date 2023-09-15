@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Owl\Component\Setting\Model\SettingInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -19,7 +19,7 @@ class SettingExampleFactory extends AbstractExampleFactory
 
     public function __construct(
         private FactoryInterface $settingFactory,
-        private string $localeCode
+        private string $localeCode,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

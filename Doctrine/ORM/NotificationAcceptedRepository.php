@@ -6,8 +6,8 @@ namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Component\Core\Model\NotificationAcceptedInterface;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\NotificationAcceptedRepositoryInterface;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
  * @template T of NotificationAcceptedInterface
@@ -16,9 +16,6 @@ use Owl\Component\Core\Repository\NotificationAcceptedRepositoryInterface;
  */
 class NotificationAcceptedRepository extends EntityRepository implements NotificationAcceptedRepositoryInterface
 {
-    /**
-     * @return QueryBuilder
-     */
     public function findByNotification($notificationId): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');

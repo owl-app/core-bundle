@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type\Equipment;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Owl\Bundle\CategoryBundle\Form\Type\CategoryType;
+use Symfony\Component\Form\FormBuilderInterface;
 
 final class EquipmentCategoryType extends CategoryType
 {

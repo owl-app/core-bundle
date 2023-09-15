@@ -13,7 +13,7 @@ final class EquipmentEventEmailManager implements EquipmentEventEmailManagerInte
 {
     public function __construct(
         private SenderInterface $emailSender,
-        private AdminUserRepositoryInterface $adminUserRepository
+        private AdminUserRepositoryInterface $adminUserRepository,
     ) {
     }
 
@@ -29,12 +29,12 @@ final class EquipmentEventEmailManager implements EquipmentEventEmailManagerInte
             [
                 'equipment' => $equipment,
                 'equipmentEvent' => $equipmentEvent,
-            ]
+            ],
         );
     }
 
     /**
-     * @return (mixed|null|string)[]
+     * @return (mixed|string|null)[]
      *
      * @psalm-return list{0: mixed|null|string, 1?: mixed|null|string,...}
      */

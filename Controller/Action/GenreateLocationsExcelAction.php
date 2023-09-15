@@ -9,8 +9,8 @@ use Owl\Bridge\SyliusResource\Exception\InvalidResponseException;
 use Owl\Component\Core\Factory\Document\DocumentFactoryInterface;
 use Owl\Component\Core\Factory\Document\Params\ExcelDocumentParams;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfigurationFactoryInterface;
-use Symfony\Component\Form\FormFactoryInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourcesCollectionProviderInterface;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -30,7 +30,7 @@ final class GenreateLocationsExcelAction extends AbstractResourceAction
         RequestConfigurationFactoryInterface $requestConfigurationFactory,
         ResourcesCollectionProviderInterface $resourcesFinder,
         FormFactoryInterface $formFactory,
-        DocumentFactoryInterface $excelFactory
+        DocumentFactoryInterface $excelFactory,
     ) {
         $this->requestConfigurationFactory = $requestConfigurationFactory;
         $this->resourcesCollectionProvider = $resourcesFinder;

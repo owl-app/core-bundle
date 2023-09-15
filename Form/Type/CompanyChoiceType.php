@@ -22,8 +22,7 @@ final class CompanyChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' =>
-            function (Options $options): array {
+            'choices' => function (Options $options): array {
                 return $this->companyRepository->findAll();
             },
             'choice_value' => 'id',

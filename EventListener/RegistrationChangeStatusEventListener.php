@@ -8,16 +8,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use Owl\Bundle\CoreBundle\Event\RegistrationEvents;
 use Owl\Component\Core\Model\AdminUserRegistrationDataInterface;
 use Owl\Component\Core\Updater\SingleRoleUpdaterInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Webmozart\Assert\Assert;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class RegistrationChangeStatusEventListener
 {
     public function __construct(
         private EntityManagerInterface $adminUserRegistrationDataManager,
         private SingleRoleUpdaterInterface $roleUpdater,
-        private EventDispatcherInterface $eventDispatcher
+        private EventDispatcherInterface $eventDispatcher,
     ) {
     }
 

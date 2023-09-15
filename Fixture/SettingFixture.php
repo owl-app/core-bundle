@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 class SettingFixture extends AbstractResourceFixture
 {
     /**
-     * @return string
-     *
      * @psalm-return 'setting'
      */
     public function getName(): string

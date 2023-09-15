@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Owl\Bundle\CoreBundle\Util;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;

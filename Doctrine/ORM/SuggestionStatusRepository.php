@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Owl\Bundle\CoreBundle\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Owl\Component\Core\Repository\SuggestionStatusRepositoryInterface;
 use Owl\Component\Status\Model\StatusInterface;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
  * @template T of StatusInterface

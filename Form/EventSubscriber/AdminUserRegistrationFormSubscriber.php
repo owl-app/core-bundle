@@ -45,7 +45,7 @@ final class AdminUserRegistrationFormSubscriber implements EventSubscriberInterf
 
         $token = $this->tokenGenerator->generate();
         $data->setEmailVerificationToken($token);
-        $data->setDisplayName($rawData['firstName'].' '.$rawData['lastName']);
+        $data->setDisplayName($rawData['firstName'] . ' ' . $rawData['lastName']);
 
         $form->setData($data);
     }

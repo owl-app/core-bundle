@@ -59,8 +59,6 @@ final class UserUpdateProfileType extends AbstractResourceType
     }
 
     /**
-     * @return string
-     *
      * @psalm-return 'owl_user_update_profile'
      */
     public function getBlockPrefix(): string
