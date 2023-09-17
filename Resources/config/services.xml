@@ -110,5 +110,15 @@
             <argument type="service" id="Owl\Bundle\CoreBundle\EventListener\LocaleAwareListener.inner" />
         </service>
 
+        <service id="owl.custom_resource_controller.resource_update_handler" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Handler\ResourceUpdateHandler" decorates="sylius.resource_controller.resource_update_handler" public="false">
+            <argument type="service" id="owl.custom_resource_controller.resource_update_handler.inner" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="owl.custom_resource_controller.resource_delete_handler" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Handler\ResourceDeleteHandler" decorates="sylius.resource_controller.resource_delete_handler" public="false">
+            <argument type="service" id="owl.custom_resource_controller.resource_delete_handler.inner" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
     </services>
 </container>

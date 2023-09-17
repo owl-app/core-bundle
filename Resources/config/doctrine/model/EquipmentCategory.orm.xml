@@ -8,15 +8,5 @@
 
         <field name="addons" column="addons" type="json_array" nullable="true" />
 
-        <one-to-many
-            field="equipments"
-            target-entity="Owl\Component\Core\Model\EquipmentInterface"
-            orphan-removal="false"
-        >
-            <cascade>
-                <cascade-all/>
-            </cascade>
-        </one-to-many>
-
     </mapped-superclass>
 </doctrine-mapping>

@@ -4,22 +4,22 @@
     <services>
         <defaults public="true" />
 
-        <service id="owl.resource_filter.company" class="Owl\Component\Core\Resource\Filter\CompanyResourceFilter" public="false">
+        <service id="owl.resource_filter.company" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Resource\Filter\CompanyResourceFilter" public="false">
             <argument type="service" id="owl.context.admin_user" />
             <tag name="owl.resource_filter" type="company" />
         </service>
 
-        <service id="owl.resource_filter.owner_company" class="Owl\Component\Core\Resource\Filter\OwnerCompanyResourceFilter" public="false">
+        <service id="owl.resource_filter.owner_company" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Resource\Filter\OwnerCompanyResourceFilter" public="false">
             <argument type="service" id="owl.context.admin_user" />
             <tag name="owl.resource_filter" type="owner_company" />
         </service>
 
-        <service id="owl.resource_filter.owner_user" class="Owl\Component\Core\Resource\Filter\OwnerUserResourceFilter" public="false">
+        <service id="owl.resource_filter.owner_user" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Resource\Filter\OwnerUserResourceFilter" public="false">
             <argument type="service" id="owl.context.admin_user" />
             <tag name="owl.resource_filter" type="owner_user" />
         </service>
 
-        <service id="owl.resource_filter.owner_many_companies" class="Owl\Component\Core\Resource\Filter\OwnerManyCompanyResourceFilter" public="false">
+        <service id="owl.resource_filter.owner_many_companies" class="Owl\Bundle\CoreBundle\Doctrine\ORM\Resource\Filter\OwnerManyCompanyResourceFilter" public="false">
             <argument type="service" id="owl.context.admin_user" />
             <tag name="owl.resource_filter" type="owner_many_companies" />
         </service>
