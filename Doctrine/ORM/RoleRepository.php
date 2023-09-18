@@ -26,4 +26,15 @@ class RoleRepository extends EntityRepository implements RoleRepositoryInterface
             ->getResult()
         ;
     }
+
+    public function findByCannonicalName(string $cannonicalName): RoleInterface
+    {
+        return $this->createQueryBuilder('o')
+            ->leftJoin('o.setting', 'setting')
+            ->andWhere('setting.canonicalName = :canonicalName')
+            ->setParameter('canonicalName', $cannonicalName)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

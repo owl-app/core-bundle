@@ -135,6 +135,7 @@
 
         <service id="owl.form.type.company_choice" class="Owl\Bundle\CoreBundle\Form\Type\CompanyChoiceType">
             <argument type="service" id="owl.repository.company" />
+            <argument type="service" id="owl.resource_controller.orm.collection_provider" />
             <tag name="form.type" />
         </service>
 
@@ -161,6 +162,8 @@
 
         <service id="owl.form.subscriber.add_owner" class="Owl\Bundle\CoreBundle\Form\EventSubscriber\AddOwnerFormSubscriber">
             <argument type="service" id="owl.context.admin_user" />
+            <argument type="service" id="owl.repository.admin_user" />
+            <argument type="service" id="owl.resource_controller.orm.collection_provider" />
             <argument type="service" id="form.factory" />
         </service>
 

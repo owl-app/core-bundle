@@ -42,15 +42,6 @@
                 </option>
             </constraint>
         </property>
-        <property name="company">
-            <constraint name="NotBlank">
-                <option name="message">owl.common.not_blank</option>
-                <option name="groups">
-                    <value>owl</value>
-                    <value>admin_user_registration_accept</value>
-                </option>
-            </constraint>
-        </property>
         <property name="localeCode">
             <constraint name="NotBlank">
                 <option name="message">owl.common.not_blank</option>

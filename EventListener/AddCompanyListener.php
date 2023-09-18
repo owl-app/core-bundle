@@ -23,8 +23,9 @@ final class AddCompanyListener
         $subject = $event->getSubject();
         Assert::isInstanceOf($subject, CompanyAwareInterface::class);
 
-        if ($this->adminUserContext->isAdminCompany() || $this->adminUserContext->isUser()) {
-            $subject->setCompany($this->adminUserContext->getAccessCompany());
+        if($this->adminUserContext->isAdminCompany() || $this->adminUserContext->isUser()) {
+            $company = $this->adminUserContext->getAccessCompanies()->first();
+            $subject->setCompany($company);
         }
     }
 }

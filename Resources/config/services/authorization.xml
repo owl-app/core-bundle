@@ -25,10 +25,5 @@
             <tag name="security.voter" />
         </service>
 
-        <service id="sylius.context.channel.single_channel" class="Sylius\Component\Channel\Context\SingleChannelContext" public="false">
-            <argument type="service" id="sylius.repository.channel" />
-            <tag name="sylius.context.channel" priority="-128"/>
-        </service>
-
     </services>
 </container>

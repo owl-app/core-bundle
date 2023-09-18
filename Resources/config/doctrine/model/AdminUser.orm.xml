@@ -17,9 +17,16 @@
             <join-column name="role_id" referenced-column-name="id" nullable="true" />
         </many-to-one>
 
-        <many-to-one field="company" target-entity="Owl\Component\Core\Model\CompanyInterface">
-            <join-column name="company_id" referenced-column-name="id" nullable="true" />
-        </many-to-one>
+        <many-to-many field="companies" target-entity="Owl\Component\Core\Model\CompanyInterface">
+            <join-table name="owl_admin_user_companies">
+                <join-columns>
+                    <join-column name="user_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="company_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
 
         <one-to-many
             field="acceptedNotifications"

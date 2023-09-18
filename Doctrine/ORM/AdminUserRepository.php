@@ -42,4 +42,17 @@ class AdminUserRepository extends UserRepository implements AdminUserRepositoryI
             ->getResult()
         ;
     }
+
+    public function findByRoleUser(): QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('role')
+            ->addSelect('registration')
+            ->leftJoin('o.role', 'role')
+            ->leftJoin('role.setting', 'setting')
+            ->leftJoin('o.registration', 'registration')
+            ->andWhere('setting.canonicalName = :roleCanonicalName')
+            ->setParameter('roleCanonicalName', RoleAwareInterface::ROLE_USER_NAME)
+        ;
+    }
 }

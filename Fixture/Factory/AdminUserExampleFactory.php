@@ -46,11 +46,14 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
         $user->setEmail($options['email']);
         $user->setPlainPassword($options['password']);
         $user->setEnabled($options['enabled']);
-        $user->addRole($options['role']);
         $user->setLocaleCode($options['locale_code']);
 
+        if($options['role']) {
+            $user->addRole($options['role']);
+        }
+
         if (isset($options['company_reference']) && $this->companyReference->hasReference($options['company_reference'])) {
-            $user->setCompany($this->companyReference->getReference($options['company_reference']));
+            $user->addCompany($this->companyReference->getReference($options['company_reference']));
         }
 
         if (isset($options['role_reference']) && $this->roleReference->hasReference($options['role_reference'])) {
