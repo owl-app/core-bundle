@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Context;
 
+use Doctrine\Common\Collections\Collection;
 use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\AdminUserInterface;
-use Owl\Component\Core\Model\CompanyInterface;
 use Owl\Component\Core\Model\Rbac\RoleInterface;
 use Owl\Component\Core\Model\Rbac\RoleSettingInterface;
 use Owl\Component\Core\Model\RoleAwareInterface;
@@ -36,15 +36,9 @@ final class AdminUserContext implements AdminUserContextInterface
         return null;
     }
 
-    public function getAccessCompany(): ?CompanyInterface
+    public function getAccessCompanies(): Collection
     {
-        $company = $this->getUser()->getCompany();
-
-        if ($company instanceof CompanyInterface) {
-            return $company;
-        }
-
-        return null;
+        return  $this->getUser()->getCompanies();
     }
 
     public function getAccessCompaniesIds(): array

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\EventSubscriber;
 
+use Doctrine\ORM\EntityRepository;
 use Owl\Bridge\SyliusResource\Doctrine\Orm\CollectionProviderInterface;
 use Owl\Bundle\CoreBundle\Form\Type\CompanyChoiceType;
 use Owl\Bundle\CoreBundle\Form\Type\UserChoiceType;
@@ -11,7 +12,6 @@ use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\Authorization\ManyOwnerableCompanyInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -20,7 +20,7 @@ final class AddOwnerFormSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private AdminUserContextInterface $adminUserContext,
-        private RepositoryInterface $userRepository,
+        private EntityRepository $userRepository,
         private CollectionProviderInterface $collectionProvider,
     ) {
     }

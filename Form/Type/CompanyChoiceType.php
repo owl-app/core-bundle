@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Bundle\CoreBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Owl\Bridge\SyliusResource\Doctrine\Orm\CollectionProviderInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Bridge\Doctrine\Form\DataTransformer\CollectionToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -14,7 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class CompanyChoiceType extends AbstractType
 {
-    public function __construct(private RepositoryInterface $companyRepository, private CollectionProviderInterface $collectionProvider)
+    public function __construct(private EntityRepository $companyRepository, private CollectionProviderInterface $collectionProvider)
     {
     }
 
