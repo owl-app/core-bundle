@@ -48,7 +48,7 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
         $user->setEnabled($options['enabled']);
         $user->setLocaleCode($options['locale_code']);
 
-        if($options['role']) {
+        if ($options['role']) {
             $user->addRole($options['role']);
         }
 

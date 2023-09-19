@@ -33,7 +33,7 @@ class CompanyExampleFactory extends AbstractExampleFactory
                 return $this->faker->firstName;
             })
             ->setDefault('nip', function (Options $options): string {
-                return (string) $this->faker->randomNumber(5, true).$this->faker->randomNumber(5, true);
+                return (string) $this->faker->randomNumber(5, true) . $this->faker->randomNumber(5, true);
             })
             ->setDefault('city', function (Options $options): string {
                 return $this->faker->city;

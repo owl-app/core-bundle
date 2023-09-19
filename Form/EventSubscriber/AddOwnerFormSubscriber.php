@@ -8,7 +8,6 @@ use Owl\Bridge\SyliusResource\Doctrine\Orm\CollectionProviderInterface;
 use Owl\Bundle\CoreBundle\Form\Type\CompanyChoiceType;
 use Owl\Bundle\CoreBundle\Form\Type\UserChoiceType;
 use Owl\Component\Core\Context\AdminUserContextInterface;
-use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\Authorization\ManyOwnerableCompanyInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
@@ -22,7 +21,7 @@ final class AddOwnerFormSubscriber implements EventSubscriberInterface
     public function __construct(
         private AdminUserContextInterface $adminUserContext,
         private RepositoryInterface $userRepository,
-        private CollectionProviderInterface $collectionProvider
+        private CollectionProviderInterface $collectionProvider,
     ) {
     }
 
@@ -45,14 +44,14 @@ final class AddOwnerFormSubscriber implements EventSubscriberInterface
             $form
                 ->add('user', UserChoiceType::class, [
                     'choices' => $this->collectionProvider->get(
-                        $this->userRepository, 
+                        $this->userRepository,
                         [],
                         [
                             'method' => 'findEnabledWithOwner',
                             'arguments' => [
-                                'userId' => $data->getUser() ? $data->getUser()->getId() : null
-                            ]
-                        ]
+                                'userId' => $data->getUser() ? $data->getUser()->getId() : null,
+                            ],
+                        ],
                     ),
                     'label' => 'owl.form.common.assign_user',
                 ]);
@@ -60,7 +59,7 @@ final class AddOwnerFormSubscriber implements EventSubscriberInterface
 
         if ($data instanceof OwnerableCompanyInterface && ($isAdminSystem || $isAdminCompany)) {
             $form->add('company', CompanyChoiceType::class, [
-                'label' => 'owl.form.common.assign_company'
+                'label' => 'owl.form.common.assign_company',
             ]);
         }
 
