@@ -55,4 +55,23 @@ class AdminUserRepository extends UserRepository implements AdminUserRepositoryI
             ->setParameter('roleCanonicalName', RoleAwareInterface::ROLE_USER_NAME)
         ;
     }
+
+    public function findEnabledWithOwner(?int $userId): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        if($userId) {
+            $queryBuilder
+                ->orWhere('o.id = :userId')
+                ->setParameter('userId', $userId)
+            ;
+        }
+        
+        $queryBuilder
+            ->orWhere('o.enabled = :enabled')
+            ->setParameter('enabled', 1)
+        ;
+
+        return $queryBuilder;
+    }
 }
